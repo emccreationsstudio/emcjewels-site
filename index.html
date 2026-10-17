@@ -383,6 +383,9 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
 .lb-title h2{font-size:clamp(44px,6.4vw,120px)}
 .lb-main{aspect-ratio:3/2;max-height:none;width:min(100%,calc((100vh - 320px)*1.5));min-width:min(100%,560px)}
 .lb-thumbs button{width:clamp(80px,7vw,120px);aspect-ratio:4/3}
+.lb-card{background:var(--silver);padding:clamp(8px,.9vw,12px) clamp(8px,.9vw,12px) clamp(12px,1.2vw,18px);width:min(100%,calc((100vh - 390px)*1.5 + 24px));min-width:min(100%,584px);box-sizing:border-box}
+.lb-card .lb-main{width:100%;min-width:0;max-height:none}
+.lb-no{display:block;font-family:var(--display);font-weight:500;font-size:clamp(30px,2.8vw,46px);line-height:1;color:var(--ink);padding:clamp(10px,1vw,14px) 4px 0}
 .sp-right{top:84px;padding-top:clamp(0px,9vw,190px);gap:24px}
 .cat-specs{gap:10px}
 .cat-specs li{padding-bottom:10px}
@@ -871,7 +874,7 @@ function openP(id){
     <section class="sp sp1">
       <div class="sp-left">
         <div class="lb-title"><span class="num">${no}</span><div><h2 id="pName" lang="en">${esc(r.name.toUpperCase())}</h2><div class="tr"><span lang="en">${esc(r.name.toUpperCase())}</span>${lang==="tr"?` (${esc(UP(r.tr))})`:""}</div></div></div>
-        <div class="lb-main"><img id="gMain" src="${G[0]}" alt="${esc(T(r.name+" yüzük fotoğrafı",r.name+" ring photo"))}"></div>
+        <div class="lb-card"><div class="lb-main"><img id="gMain" src="${G[0]}" alt="${esc(T(r.name+" yüzük fotoğrafı",r.name+" ring photo"))}"></div><b class="lb-no" aria-hidden="true">N°${String(no).padStart(2,"0")}</b></div>
         <div class="lb-thumbs">${G.map((src,i)=>`<button data-i="${i}" aria-current="${i===0}" aria-label="${T("Fotoğraf","Photo")} ${i+1}"><img src="${src}" alt=""></button>`).join("")}</div>
       </div>
       <div class="sp-right">
