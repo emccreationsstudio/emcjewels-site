@@ -385,6 +385,12 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
 .lb-thumbs button{width:clamp(80px,7vw,120px);aspect-ratio:4/3}
 .lb-card{background:var(--silver);padding:clamp(8px,.9vw,12px) clamp(8px,.9vw,12px) clamp(12px,1.2vw,18px);width:min(100%,calc((100vh - 390px)*1.5 + 24px));min-width:min(100%,584px);box-sizing:border-box}
 .lb-card .lb-main{width:100%;min-width:0;max-height:none}
+.lb-vids{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,16px);margin-top:clamp(18px,2vw,28px);width:min(100%,calc((100vh - 390px)*1.5 + 24px));min-width:min(100%,584px)}
+.lb-vid{margin:0;background:var(--silver);padding:clamp(6px,.7vw,10px) clamp(6px,.7vw,10px) 0}
+.lb-vid video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#0d1220;pointer-events:none;-webkit-touch-callout:none}
+.lb-vid figcaption{display:flex;justify-content:space-between;align-items:baseline;padding:10px 4px 12px;color:var(--ink)}
+.lb-vid figcaption span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.lb-vid figcaption b{font-family:var(--display);font-weight:500;font-size:clamp(18px,1.6vw,24px);line-height:1}
 .lb-no{display:block;font-family:var(--display);font-weight:500;font-size:clamp(30px,2.8vw,46px);line-height:1;color:var(--ink);padding:clamp(10px,1vw,14px) 4px 0}
 .sp-right{top:84px;padding-top:clamp(0px,9vw,190px);gap:24px}
 .cat-specs{gap:10px}
@@ -880,6 +886,7 @@ function openP(id){
         <div class="lb-title"><span class="num">${no}</span><div><h2 id="pName" lang="en">${esc(r.name.toUpperCase())}</h2><div class="tr"><span lang="en">${esc(r.name.toUpperCase())}</span>${lang==="tr"?` (${esc(UP(r.tr))})`:""}</div></div></div>
         <div class="lb-card"><div class="lb-main"><img id="gMain" src="${G[0]}" alt="${esc(T(r.name+" yüzük fotoğrafı",r.name+" ring photo"))}"></div><b class="lb-no" aria-hidden="true">N°${String(no).padStart(2,"0")}</b></div>
         <div class="lb-thumbs">${G.map((src,i)=>`<button data-i="${i}" aria-current="${i===0}" aria-label="${T("Fotoğraf","Photo")} ${i+1}"><img src="${src}" alt=""></button>`).join("")}</div>
+        ${r.g==="m"?`<div class="lb-vids">${["box","hand"].map(k=>`<figure class="lb-vid"><video src="vid/${r.id}_${k}.mp4" poster="vid/${r.id}_${k}.jpg" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-label="${esc(r.name)} ${k==="box"?T("kutusunda","in its box"):T("elde","on hand")}"></video><figcaption><span>${k==="box"?T("Kutusunda","In the box"):T("Elde","On hand")}</span><b>N°${String(no).padStart(2,"0")}</b></figcaption></figure>`).join("")}</div>`:""}
       </div>
       <div class="sp-right">
         <ul class="cat-specs">
@@ -922,6 +929,7 @@ function openP(id){
   $("#sizes").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;sel.size=+b.dataset.s;$("#szLbl").textContent=sel.size;$("#szErr").hidden=true;$("#sizes").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b))});
   $("#engr").addEventListener("input",e=>$("#engrCt").textContent=`${e.target.value.length}/20`);
   $("#addBtn").onclick=()=>{if(!sel.size){$("#szErr").hidden=false;$("#sizes").scrollIntoView({block:"center",behavior:"smooth"});return}addToCart(r,sel.size,$("#engr").value.trim());closeP();openCart()};
+  $("#panel").querySelectorAll(".lb-vids video").forEach(v=>{v.muted=true;v.defaultMuted=true;const p=v.play();if(p)p.catch(()=>{})});
   $("#pClose").onclick=closeP;
   $("#pBack").onclick=closeP;
   $("#pShare").onclick=async()=>{
@@ -937,7 +945,7 @@ function openP(id){
   $("#sheet").classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden";
   $("#panel").scrollTop=0;setTimeout(()=>$("#pClose").focus(),50);
 }
-function closeP(){try{if(location.hash.startsWith("#r="))history.replaceState(null,"",location.pathname+location.search)}catch(x){}$("#sheet").classList.remove("on");if(!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
+function closeP(){document.querySelectorAll("#panel video").forEach(v=>{try{v.pause()}catch(x){}});try{if(location.hash.startsWith("#r="))history.replaceState(null,"",location.pathname+location.search)}catch(x){}$("#sheet").classList.remove("on");if(!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
 $("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openP(c.dataset.id)});
 $("#sheet").addEventListener("click",e=>{if(e.target.id==="sheet")closeP()});
 
