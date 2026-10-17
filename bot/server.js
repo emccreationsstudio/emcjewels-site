@@ -116,7 +116,7 @@ http.createServer(async (req, res) => {
     return res.end(RINGS);
   }
   if (url.pathname === '/widget.js') {
-    res.writeHead(200, { 'content-type': 'application/javascript; charset=utf-8', 'cache-control': 'public, max-age=300' });
+    res.writeHead(200, { 'content-type': 'application/javascript; charset=utf-8', 'cache-control': 'no-cache' });
     return res.end(WIDGET);
   }
   if (url.pathname === '/api/chat' && req.method === 'POST') {
