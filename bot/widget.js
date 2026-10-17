@@ -17,10 +17,22 @@
     let hist = []; try { hist = JSON.parse(store.get('emc_chat_hist') || '[]'); } catch (e) { hist = []; }
 
     const css = `
-#emcChatBtn{position:fixed;right:22px;bottom:22px;z-index:2147483000;width:62px;height:62px;border-radius:50%;border:1px solid rgba(205,211,220,.5);background:radial-gradient(120% 120% at 30% 20%,#1b2f6e 0%,#0b1430 55%,#060a14 100%);color:#eef1f6;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 34px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12);transition:transform .25s,box-shadow .25s}
-#emcChatBtn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.6),0 0 0 4px rgba(205,211,220,.08)}
-#emcChatBtn svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.4}
-#emcChatBtn.hide{display:none}
+#emcChatBtn{position:fixed;right:22px;bottom:22px;z-index:2147483000;width:70px;height:70px;padding:0;border-radius:50%;border:2px solid #cdd3dc;background:#0b1430;cursor:pointer;box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 0 5px rgba(205,211,220,.12);transition:transform .25s,box-shadow .25s;animation:emcPulse 3.2s ease-in-out infinite}
+#emcChatBtn img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+#emcChatBtn::after{content:"";position:absolute;right:3px;bottom:3px;width:14px;height:14px;border-radius:50%;background:#3ccf7a;border:2px solid #060a14}
+#emcChatBtn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 40px rgba(0,0,0,.6),0 0 0 7px rgba(205,211,220,.18);animation:none}
+@keyframes emcPulse{0%,100%{box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 0 5px rgba(205,211,220,.12)}50%{box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 0 11px rgba(205,211,220,.04)}}
+#emcChatBtn.hide,#emcHint.hide{display:none}
+#emcHint{position:fixed;right:104px;bottom:34px;z-index:2147483000;max-width:240px;padding:12px 34px 12px 16px;border-radius:16px 16px 4px 16px;background:rgba(6,10,20,.92);border:1px solid rgba(205,211,220,.4);color:#eef1f6;font:14px/1.4 "Figtree",system-ui,sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.5);cursor:pointer;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#emcHint.on{opacity:1;transform:none}
+#emcHint b{display:block;font:500 16px/1.2 "Bodoni Moda",Georgia,serif;margin-bottom:3px}
+#emcHint button{position:absolute;top:6px;right:6px;width:24px;height:24px;border:0;background:none;color:#8c94a8;font-size:16px;line-height:1;cursor:pointer;border-radius:50%}
+#emcHint button:hover{color:#eef1f6;background:rgba(205,211,220,.1)}
+#emcChat .hd .av{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1.5px solid #cdd3dc;flex:none;pointer-events:none}
+#emcChat .hd .who{display:flex;flex-direction:column;gap:2px;min-width:0}
+#emcChat .hd .who img{height:26px!important}
+#emcChat .hd .who small{font:500 10px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#8c94a8;display:flex;align-items:center;gap:6px}
+#emcChat .hd .who small::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ccf7a}
 #emcChat{--ink:#060a14;--silver:#cdd3dc;--fg:#eef1f6;--muted:#8c94a8;--line:rgba(205,211,220,.18);position:fixed;right:22px;bottom:22px;z-index:2147483001;width:min(420px,calc(100vw - 24px));height:min(680px,calc(100vh - 44px));display:none;flex-direction:column;color:var(--fg);border-radius:22px;overflow:hidden;border:1px solid rgba(205,211,220,.38);box-shadow:0 30px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.08);font:15px/1.5 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(180deg,rgba(6,10,20,.80),rgba(6,10,20,.92)),url(${SITE}img/satin3.jpg) center/cover,#060a14;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transform-origin:bottom right;animation:emcIn .28s cubic-bezier(.2,.8,.2,1)}
 @keyframes emcIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 #emcChat.on{display:flex}
@@ -71,7 +83,7 @@
 #emcChat form button:disabled{opacity:.5;cursor:default;transform:none}
 #emcChat form button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;margin-left:-2px}
 #emcChat .note{text-align:center;padding:2px 14px 12px;font-size:11px;color:var(--muted)}
-@media (max-width:520px){#emcChat{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0;border:0}#emcChatBtn{right:16px;bottom:16px}.emcRing{grid-template-columns:96px 1fr auto}.emcRing .nm{font-size:19px}}
+@media (max-width:520px){#emcChat{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0;border:0}#emcChatBtn{right:16px;bottom:16px;width:62px;height:62px}#emcHint{right:90px;bottom:24px;max-width:200px}.emcRing{grid-template-columns:96px 1fr auto}.emcRing .nm{font-size:19px}}
 @media print{#emcChat,#emcChatBtn{display:none!important}}`;
     const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
@@ -85,14 +97,15 @@
     };
 
     const btn = document.createElement('button');
-    btn.id = 'emcChatBtn'; btn.type = 'button'; btn.innerHTML = ICON.chat;
+    btn.id = 'emcChatBtn'; btn.type = 'button'; btn.innerHTML = `<img src="${SITE}img/assistant.jpg" alt="">`;
+    const hint = document.createElement('div'); hint.id = 'emcHint';
     const box = document.createElement('div');
     box.id = 'emcChat'; box.setAttribute('role', 'dialog');
-    box.innerHTML = `<div class="hd"><div class="brand"><img src="${SITE}img/wordmark.png" alt="EMC Jewels"></div>
+    box.innerHTML = `<div class="hd"><div class="brand"><img class="av" src="${SITE}img/assistant.jpg" alt=""><span class="who"><img src="${SITE}img/wordmark.png" alt="EMC Jewels"><small></small></span></div>
 <div class="tools"><button type="button" data-a="ref">${ICON.ref}</button><button type="button" data-a="min">${ICON.min}</button><button type="button" data-a="x">${ICON.x}</button></div></div>
 <div id="emcLog" aria-live="polite"></div>
 <form><textarea rows="1" maxlength="800"></textarea><button type="submit">${ICON.send}</button></form><div class="note"></div>`;
-    document.body.append(btn, box);
+    document.body.append(hint, btn, box);
     const log = box.querySelector('#emcLog'), ta = box.querySelector('textarea'), send = box.querySelector('form button');
 
     const labels = () => {
@@ -102,6 +115,7 @@
       r.title = r.ariaLabel = T('Sohbeti yenile', 'Restart chat');
       m.title = m.ariaLabel = T('Küçült', 'Minimise');
       x.title = x.ariaLabel = T('Kapat', 'Close');
+      box.querySelector('.who small').textContent = T('Asistan · Çevrimiçi', 'Assistant · Online');
       ta.placeholder = T('Bir soru sorun…', 'Ask a question…');
       send.setAttribute('aria-label', T('Gönder', 'Send'));
       box.querySelector('.note').textContent = T('Asistan sipariş almaz; sorularınızı yanıtlar.', 'The assistant answers questions; it does not take orders.');
@@ -168,8 +182,13 @@
     }
 
     let opened = false;
-    const open = () => { labels(); if (!opened) { opened = true; replay(); } box.classList.add('on'); btn.classList.add('hide'); setTimeout(() => { ta.focus(); scroll(); }, 60); };
+    const hideHint = () => { hint.classList.remove('on'); setTimeout(() => hint.classList.add('hide'), 400); store.set('emc_hint_off', '1'); };
+    const open = () => { hideHint(); labels(); if (!opened) { opened = true; replay(); } box.classList.add('on'); btn.classList.add('hide'); setTimeout(() => { ta.focus(); scroll(); }, 60); };
     const hide = () => { box.classList.remove('on'); btn.classList.remove('hide'); };
+    labels(); btn.setAttribute('title', T('EMC Jewels Asistan ile yazışın', 'Chat with the EMC Jewels Assistant'));
+    hint.innerHTML = `<b>${T('Merhaba!', 'Hello!')}</b>${T('Yüzüklerimizle ilgili sorunuz mu var? Bana yazın.', 'Questions about our rings? Write to me.')}<button type="button" aria-label="${T('Kapat', 'Close')}">×</button>`;
+    hint.onclick = (e) => { if (e.target.closest('button')) { e.stopPropagation(); hideHint(); } else open(); };
+    if (store.get('emc_hint_off')) hint.classList.add('hide'); else setTimeout(() => { if (!box.classList.contains('on')) hint.classList.add('on'); }, 2500);
     const restart = () => {
       hist = []; sid = ''; store.del('emc_chat_hist'); store.del('emc_chat_sid');
       const r = box.querySelector('[data-a="ref"]'); r.classList.remove('spin'); void r.offsetWidth; r.classList.add('spin');
