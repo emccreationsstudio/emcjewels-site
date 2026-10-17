@@ -455,6 +455,10 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
 @media (max-width:900px){.req-in{grid-template-columns:1fr}}
 @media (max-width:560px){.req-pick{grid-template-columns:repeat(2,1fr)}.req-grid{grid-template-columns:1fr}}
 .lb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.sharebtn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px 0 12px;border-radius:999px;border:1px solid rgba(205,211,220,.35);background:rgba(4,7,18,.4);color:var(--fg);font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s}
+.sharebtn:hover{background:rgba(205,211,220,.12);border-color:rgba(205,211,220,.6)}
+.sharebtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+@media (max-width:520px){.sharebtn span{display:none}.sharebtn{padding:0 12px}}
 .backbtn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px 0 12px;border-radius:999px;border:1px solid rgba(205,211,220,.35);background:rgba(4,7,18,.4);color:var(--fg);font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s;flex:none}
 .backbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
 .backbtn:hover{background:var(--silver);color:var(--ink);border-color:var(--silver)}
@@ -868,7 +872,7 @@ function openP(id){
   $("#panel").innerHTML=`
   <div class="lb" lang="${lang}">
     <div class="lb-top"><div class="lb-left"><button class="backbtn" id="pBack" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>${T("Geri","Back")}</span></button><span class="eyebrow lb-eb" lang="en">EMC Jewels · ${r.g==="m"?"Man":"Woman"} Rings · New product year 2025</span></div>
-      <div style="display:flex;align-items:center;gap:6px"><div class="lang" role="group" aria-label="Dil / Language"><button data-l="tr" aria-pressed="${lang==="tr"}">TR</button><button data-l="en" aria-pressed="${lang==="en"}">EN</button></div>
+      <div style="display:flex;align-items:center;gap:6px"><button class="sharebtn" id="pShare" type="button"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/></svg><span>${T("Paylaş","Share")}</span></button><div class="lang" role="group" aria-label="Dil / Language"><button data-l="tr" aria-pressed="${lang==="tr"}">TR</button><button data-l="en" aria-pressed="${lang==="en"}">EN</button></div>
       <button class="iconbtn" id="pClose" aria-label="${T("Kapat","Close")}"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>
 
     <section class="sp sp1">
@@ -920,11 +924,20 @@ function openP(id){
   $("#addBtn").onclick=()=>{if(!sel.size){$("#szErr").hidden=false;$("#sizes").scrollIntoView({block:"center",behavior:"smooth"});return}addToCart(r,sel.size,$("#engr").value.trim());closeP();openCart()};
   $("#pClose").onclick=closeP;
   $("#pBack").onclick=closeP;
+  $("#pShare").onclick=async()=>{
+    const code="N°"+String(no).padStart(2,"0");
+    const url=location.origin+location.pathname+"#r="+r.id;
+    const title=`EMC Jewels · ${code} ${r.name}`;
+    const text=T(`${code} · ${r.name} — EMC Jewels'te bu yüzüğe bak:`,`${code} · ${r.name} — have a look at this ring on EMC Jewels:`);
+    try{if(navigator.share){await navigator.share({title,text,url});return}}catch(x){if(x&&x.name==="AbortError")return}
+    try{await navigator.clipboard.writeText(text+" "+url);toast(T(`${code} bağlantısı kopyalandı`,`${code} link copied`))}catch(x){prompt(T("Bağlantıyı kopyala:","Copy the link:"),url)}
+  };
+  try{history.replaceState(null,"","#r="+r.id)}catch(x){}
   $("#panel").querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
   $("#sheet").classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden";
   $("#panel").scrollTop=0;setTimeout(()=>$("#pClose").focus(),50);
 }
-function closeP(){$("#sheet").classList.remove("on");if(!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
+function closeP(){try{if(location.hash.startsWith("#r="))history.replaceState(null,"",location.pathname+location.search)}catch(x){}$("#sheet").classList.remove("on");if(!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
 $("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openP(c.dataset.id)});
 $("#sheet").addEventListener("click",e=>{if(e.target.id==="sheet")closeP()});
 
@@ -1016,6 +1029,47 @@ const EMC_MAIL="emcjewels@gmail.com";
     try{window.top.location.href=url}catch(x){window.location.href=url}
     toast(T(`N°${no} talebin e-posta uygulamanda açıldı.`,`Your N°${no} request opened in your email app.`));
   });
+})();
+</script>
+
+<script>
+(()=>{const go=()=>{const m=location.hash.match(/^#r=([\w-]+)$/);if(!m)return;const r=typeof byId==="function"&&byId(m[1]);if(!r)return;try{if(r.g&&r.g!==col&&typeof setCol==="function")setCol(r.g)}catch(x){}openP(r.id)};
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(go,60));else setTimeout(go,60);
+window.addEventListener("hashchange",go)})();
+</script>
+<!-- EMC görsel koruma -->
+<style>
+img{-webkit-user-drag:none;user-drag:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+main img,.sheet img,#panel img,.catalog img,.req img,#nlb img,.feature img,.atelier img,.gate img{pointer-events:none}
+body{-webkit-touch-callout:none}
+#emcShield{position:fixed;inset:0;z-index:2147483647;background:#000;display:none;place-items:center;color:rgba(232,236,243,.55);font:600 12px/1.6 "Montserrat",system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;text-align:center}
+#emcShield.on{display:grid}
+#emcShield img{width:64px;opacity:.7;margin:0 auto 16px;display:block}
+@media print{body *{display:none!important}body::after{content:"© EMC Jewels";display:block!important;font:16px sans-serif;padding:40px}}
+</style>
+<div id="emcShield" aria-hidden="true"><div><img src="img/logo_mark.png" alt="">© EMC Jewels</div></div>
+<script>
+(()=>{
+  const sh=document.getElementById("emcShield");let t;
+  const show=ms=>{sh.classList.add("on");clearTimeout(t);if(ms)t=setTimeout(()=>sh.classList.remove("on"),ms)};
+  const hide=()=>{clearTimeout(t);sh.classList.remove("on")};
+  const editable=e=>e.target.closest&&e.target.closest("input,textarea,select,[contenteditable]");
+  document.addEventListener("contextmenu",e=>{if(!editable(e))e.preventDefault()},{capture:true});
+  document.addEventListener("dragstart",e=>{if(e.target.tagName==="IMG"||e.target.closest?.("picture,.ph,.lb-main"))e.preventDefault()},{capture:true});
+  document.addEventListener("selectstart",e=>{if(!editable(e)&&e.target.closest?.(".ph,.lb-main,.lb-thumbs,.req-pick,.catalog .grid"))e.preventDefault()},{capture:true});
+  const wipe=()=>{try{navigator.clipboard&&navigator.clipboard.writeText("© EMC Jewels").catch(()=>{})}catch(x){}};
+  document.addEventListener("keydown",e=>{
+    const k=(e.key||"").toLowerCase();
+    if(k==="printscreen"||k==="snapshot"){show(2500);wipe();return}
+    if((e.metaKey&&e.shiftKey)||(e.key==="Meta"&&e.shiftKey)||(e.key==="Shift"&&e.metaKey)){show(2500)}
+    if((e.ctrlKey||e.metaKey)&&(k==="s"||k==="p"||k==="u")){e.preventDefault();show(1500)}
+    if((e.metaKey||e.getModifierState&&e.getModifierState("OS"))&&e.shiftKey&&k==="s"){show(3000)}
+  },{capture:true});
+  document.addEventListener("keyup",e=>{if((e.key||"").toLowerCase()==="printscreen"){show(2500);wipe()}},{capture:true});
+  window.addEventListener("blur",()=>show(0));
+  window.addEventListener("focus",hide);
+  document.addEventListener("visibilitychange",()=>{document.hidden?show(0):hide()});
+  window.addEventListener("beforeprint",()=>show(0));window.addEventListener("afterprint",hide);
 })();
 </script>
 
