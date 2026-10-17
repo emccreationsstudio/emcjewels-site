@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const env = process.env;
 const PORT = Number(env.PORT || 3000);
-const API_KEY = env.ANTHROPIC_API_KEY || '';
+const API_KEY = (env.ANTHROPIC_API_KEY || '').trim().replace(/^["']|["']$/g, '');
 const MODEL = env.CLAUDE_MODEL || 'claude-sonnet-5-5';
 const MOCK = env.MOCK_LLM === '1';
 const ORIGINS = (env.WEB_ALLOWED_ORIGINS || 'https://emcjewels.com,https://www.emcjewels.com').split(',').map((s) => s.trim()).filter(Boolean);
