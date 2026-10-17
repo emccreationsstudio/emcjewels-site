@@ -316,6 +316,15 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
 .catalog .card .ph img{transform:none!important;object-position:50% 50%;filter:grayscale(1) contrast(1.05);transition:filter .6s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
 .catalog .card:hover .ph img,.catalog .card:focus-visible .ph img{filter:grayscale(0) contrast(1);transform:scale(1.04)!important}
 @media (hover:none){.catalog .card .ph img{filter:none}}
+.card .nbig{display:none}
+.catalog .card{padding:10px 10px 16px;border:1px solid transparent;transition:background .35s ease,border-color .35s ease,color .35s ease}
+.catalog .card .nbig{display:block;font-family:var(--display);font-weight:500;font-size:clamp(30px,2.6vw,42px);line-height:1;color:var(--ink);opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
+.catalog .card .meta{padding-top:12px}
+.catalog .card:hover,.catalog .card:focus-visible{background:var(--silver);border-color:var(--silver);color:var(--ink)}
+.catalog .card:hover .nbig,.catalog .card:focus-visible .nbig{opacity:1;transform:none}
+.catalog .card:hover .sub,.catalog .card:hover .usd,.catalog .card:focus-visible .sub,.catalog .card:focus-visible .usd{color:rgba(10,14,26,.62)}
+.catalog .card:hover h3,.catalog .card:hover .price,.catalog .card:focus-visible h3,.catalog .card:focus-visible .price{color:var(--ink)}
+@media (hover:none){.catalog .card .nbig{display:none}}
 
 /* product page = catalog spread */
 .sheet{padding:0}
@@ -821,6 +830,7 @@ function render(){
         <span class="glow"></span>
       </div>
       <div class="meta">
+        <b class="nbig" aria-hidden="true">N°${String(r.n).padStart(2,"0")}</b>
         <div><h3 lang="en">${esc(r.name)}</h3><div class="sub">${esc(F(r,"sname"))}${r.z.length?" · "+r.z.map(z=>ZOD[z]).join(" "):""}</div></div>
         <div class="price">${tlu(r.p)}</div>
       </div>
