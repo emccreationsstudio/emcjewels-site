@@ -29,8 +29,8 @@
 #emcHint button{position:absolute;top:6px;right:6px;width:24px;height:24px;border:0;background:none;color:#8c94a8;font-size:16px;line-height:1;cursor:pointer;border-radius:50%}
 #emcHint button:hover{color:#eef1f6;background:rgba(205,211,220,.1)}
 #emcChat .hd .av{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1.5px solid #cdd3dc;flex:none;pointer-events:none}
-#emcChat .hd .who{display:flex;flex-direction:column;gap:2px;min-width:0}
-#emcChat .hd .who img{height:26px!important}
+#emcChat .hd .who{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+#emcChat .hd .who img{height:34px!important;width:auto!important;max-width:none;object-fit:contain;flex:none}
 #emcChat .hd .who small{font:500 10px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#8c94a8;display:flex;align-items:center;gap:6px}
 #emcChat .hd .who small::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ccf7a}
 #emcChat{--ink:#060a14;--silver:#cdd3dc;--fg:#eef1f6;--muted:#8c94a8;--line:rgba(205,211,220,.18);position:fixed;right:22px;bottom:22px;z-index:2147483001;width:min(420px,calc(100vw - 24px));height:min(680px,calc(100vh - 44px));display:none;flex-direction:column;color:var(--fg);border-radius:22px;overflow:hidden;border:1px solid rgba(205,211,220,.38);box-shadow:0 30px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.08);font:15px/1.5 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(180deg,rgba(6,10,20,.80),rgba(6,10,20,.92)),url(${SITE}img/satin3.jpg) center/cover,#060a14;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transform-origin:bottom right;animation:emcIn .28s cubic-bezier(.2,.8,.2,1)}
