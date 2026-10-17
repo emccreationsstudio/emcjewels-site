@@ -2,7 +2,10 @@
 (() => {
   if (window.__emcChat) return; window.__emcChat = 1;
   const me = document.currentScript || [...document.scripts].find((s) => /widget\.js/.test(s.src));
-  const API = new URL(me.src).origin + '/api/chat';
+  const BASE = new URL(me.src).origin, API = BASE + '/api/chat';
+  // Bot hazır değilse (API anahtarı yoksa) balonu hiç gösterme
+  fetch(BASE + '/health').then((r) => r.json()).then((h) => { if (h && (h.key || h.mock)) init(); }).catch(() => {});
+  function init() {
   const en = () => (document.documentElement.lang || 'tr').startsWith('en');
   const T = (tr, e) => (en() ? e : tr);
   let sid = ''; try { sid = sessionStorage.getItem('emc_chat_sid') || ''; } catch (e) {}
@@ -84,4 +87,5 @@
     }
     send.disabled = false; ta.focus();
   });
+  }
 })();
