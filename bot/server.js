@@ -16,6 +16,7 @@ const ORIGINS = (env.WEB_ALLOWED_ORIGINS || 'https://emcjewels.com,https://www.e
 
 const KNOWLEDGE = fs.readFileSync(path.join(DIR, 'knowledge.json'), 'utf8');
 const WIDGET = fs.readFileSync(path.join(DIR, 'widget.js'), 'utf8');
+const RINGS = JSON.stringify(Object.fromEntries(JSON.parse(KNOWLEDGE).rings.map((r) => [r.id, { no: r.no, name: r.name, stone: r.stone_short, material: /altın/i.test(r.material) ? '925 gümüş · altın kaplama' : '925 gümüş', price: r.price_tl, one: r.only_one }])));
 
 const SYSTEM = `Sen EMC Jewels'in müşteri asistanısın. Adın "EMC Jewels Asistan". emcjewels.com sitesindeki sohbet penceresinden konuşuyorsun.
 
@@ -32,11 +33,16 @@ KESİN SINIRLAR
 - Konu dışı isteklere (ödev, kod, genel sohbet vb.) kibarca yalnızca EMC Jewels hakkında yardımcı olabildiğini söyle.
 
 ÜSLUP
-- "Siz" diye hitap et; zarif, sıcak ve kısa yaz: 1-4 cümle, gerekirse 2-4 maddelik kısa liste. Markdown başlık ve kalın yazı kullanma.
+- "Siz" diye hitap et; zarif, sıcak ve kısa yaz: 1-3 cümle. Markdown başlık, kalın yazı ve madde imi kullanma.
 - Ziyaretçi hangi dilde yazarsa o dilde yanıt ver.
-- Yüzük önerirken numarasını, adını, taşını ve fiyatını (TL) yaz; ürün bağlantısını (link alanı) ekle. En fazla 3 öneri ver.
-- Fiyat verirken fiyatların güncellenebileceğini, en güncel fiyatın ürün sayfasında olduğunu gerekirse belirt.
+- Fiyat verirken gerekirse fiyatların güncellenebileceğini, en güncel fiyatın ürün sayfasında olduğunu belirt.
 - Emojiyi çok az kullan.
+
+GÖRSEL BİÇİM (sohbet penceresi bu etiketleri özel kartlara çevirir; etiketleri aynen yaz)
+- Yanıtın etkileyici bir başlıkla açılabiliyorsa İLK satıra kısa bir başlık koy: [[title:Size özel üç seçim.]] (en fazla 6 kelime). Basit bilgi sorularında başlık kullanma.
+- Yüzük önerirken her yüzük için ayrı satıra [[ring:ID]] yaz (ID = rings listesindeki id, ör. [[ring:m5]]). Kart; fotoğrafı, numarayı, adı, taşı ve fiyatı zaten gösterir, bunları metinde tekrar yazma, link de yazma. En fazla 3 yüzük.
+- Yanıtın sonuna ziyaretçinin tıklayabileceği 2-4 kısa seçenek ekleyebilirsin: [[chips:Kaplan gözü|Oniks|Akik]] (her biri en fazla 3 kelime). Seçenekler sohbeti ilerletecek sorular olsun.
+- Etiketler dışında kalan metin normal paragraf olarak görünür.
 
 BİLGİ (JSON)
 ${KNOWLEDGE}`;
@@ -61,6 +67,7 @@ async function askClaude(messages) {
   if (MOCK) {
     const t = String(messages.at(-1).content).toLocaleLowerCase('tr');
     if (t.includes('sipariş')) return 'Sohbetten sipariş alamıyorum. Ürün sayfasından inceleyip emcjewels@gmail.com adresinden bize ulaşabilirsiniz.';
+    if (t.includes('erkek')) return '[[title:Size özel üç seçim.]]\n925 ayar gümüş ve doğal taşlarla karakterinizi yansıtan parçalar.\n[[ring:m5]]\n[[ring:m8]]\n[[ring:m9]]\nHangi taş veya renk size daha yakın?\n[[chips:Kaplan gözü|Oniks|Akik]]';
     return '(mock) Merhaba, ben EMC Jewels Asistan. Yüzüklerimiz, taşlar, ölçü, kargo veya iade hakkında sorabilirsiniz.';
   }
   const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -104,6 +111,10 @@ http.createServer(async (req, res) => {
   cors(req, res);
   if (req.method === 'OPTIONS') { res.writeHead(204); return res.end(); }
   if (url.pathname === '/health') return json(res, 200, { ok: true, model: MODEL, mock: MOCK, key: !!API_KEY });
+  if (url.pathname === '/rings') {
+    res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=600' });
+    return res.end(RINGS);
+  }
   if (url.pathname === '/widget.js') {
     res.writeHead(200, { 'content-type': 'application/javascript; charset=utf-8', 'cache-control': 'public, max-age=300' });
     return res.end(WIDGET);
