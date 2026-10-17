@@ -1,0 +1,13 @@
+{
+  "name": "emcjewels-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "EMC Jewels müşteri asistanı (sadece soru yanıtlar). Site dosyaları GitHub Pages'ta; bot Render'da çalışır.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node bot/server.js",
+    "mock": "MOCK_LLM=1 node bot/server.js",
+    "knowledge": "node bot/build-knowledge.cjs"
+  }
+}

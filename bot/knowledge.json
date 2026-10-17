@@ -1,0 +1,911 @@
+{
+ "brand": "EMC Jewels",
+ "about": "El yapımı, 925 ayar gümüş, doğal taşlı yüzükler. İstanbul. Erkek ve kadın koleksiyonları. Kadın modellerin çoğu altın kaplama. İç yüzeye isim ve tarih kazıma seçeneği (en fazla 20 karakter).",
+ "site": "https://emcjewels.com",
+ "contact": {
+  "email": "emcjewels@gmail.com",
+  "address": "Maslak Mah. Ahi Evran Cad. Nazmi Akbacı Ticaret Merkezi No: 5 İç Kapı No: 270, Sarıyer / İstanbul"
+ },
+ "company": "Evolution Media Center Yapımcılık Organizasyon Ticaret Ltd. Şti.",
+ "sizes": {
+  "erkek": "16–30 (Türkiye ölçüsü)",
+  "kadın": "10–22 (Türkiye ölçüsü)",
+  "tip": "Ölçüsünü bilmeyen, parmağına uyan bir yüzüğü bir kuyumcuda ölçtürebilir ya da ince bir iple parmak çevresini ölçüp milimetre olarak bize iletebilir."
+ },
+ "prices_note": "Fiyatlar KDV dahil Türk lirasıdır; dolar karşılığı bilgi amaçlıdır. Fiyatlar güncellenebilir, en güncel fiyat ürün sayfasındadır.",
+ "payment": "Online ödeme altyapısı (iyzico, kredi/banka kartı) kurulum aşamasındadır. Şu an sipariş ve satın alma için e-posta ile iletişime geçilmelidir.",
+ "shipping": {
+  "stock": "Stoktaki ürünler sipariş onayından sonra 3–7 iş günü içinde kargoya verilir.",
+  "custom": "Kazımalı ve ölçüye özel ürünler 5–10 iş günü içinde kargoya verilir.",
+  "max": "Yasal en geç teslim süresi 30 gün.",
+  "area": "Şu an yalnızca Türkiye içine gönderim. Ürünler EMC Jewels kutusunda gönderilir.",
+  "page": "https://emcjewels.com/yasal/teslimat.html"
+ },
+ "returns": {
+  "right": "Teslimden itibaren 14 gün içinde gerekçesiz cayma/iade hakkı. Anlaşmalı kargoyla iadede kargo ücreti EMC Jewels'e aittir. Bedel 14 gün içinde karta iade edilir.",
+  "exceptions": "İç yüzeyine kazıma yapılan ve talebe göre özel ölçüde üretilen ürünler kişiye özel olduğu için iade edilemez (ayıplı ürün hakları saklıdır).",
+  "size_exchange": "Kazımasız ve kullanılmamış ürünlerde ölçü değişimi için teslimden itibaren 14 gün içinde iletişime geçilebilir; stok ve üretim durumuna göre yapılır.",
+  "natural_stones": "Doğal taşlarda renk ve desen farklılıkları taşın doğasından kaynaklanır, ayıp sayılmaz.",
+  "page": "https://emcjewels.com/yasal/iade.html"
+ },
+ "only_one": "\"Only one\" ibareli ürünler tek adettir.",
+ "videos": "Erkek yüzüklerinin ürün sayfasında kutuda ve elde çekilmiş videoları vardır.",
+ "coming_soon": {
+  "text": "Yakında yeni ürünler: N°01, N°02 ve N°03 kolye, N°04 yüzük. Ana sayfadaki talep formundan ürün numarasıyla ön talep bırakılabilir.",
+  "link": "https://emcjewels.com/#talep"
+ },
+ "newsletter": {
+  "text": "Yeni ürünlerden haberdar olmak için sayfanın sonundaki bültene e-posta ile kaydolunabilir.",
+  "link": "https://emcjewels.com/#bulten"
+ },
+ "legal": {
+  "kvkk": "https://emcjewels.com/yasal/kvkk.html",
+  "mesafeli_satis": "https://emcjewels.com/yasal/mesafeli-satis.html",
+  "gizlilik": "https://emcjewels.com/yasal/gizlilik.html"
+ },
+ "stone_beliefs_note": "Taş özellikleri ve burç bilgileri geleneksel inanışlara dayanır; bilimsel veya tıbbi iddia değildir.",
+ "rings": [
+  {
+   "id": "m1",
+   "no": "N°01",
+   "name": "Ocean Spirit",
+   "tr_name": "Okyanus Ruhu",
+   "collection": "Erkek",
+   "stone": "Doğal aquamarin (ham taş)",
+   "stone_short": "Aquamarin",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Turkuaz",
+   "price_tl": 4950,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "İkizler",
+    "Kova"
+   ],
+   "properties": [
+    "Duygusal berraklık, huzur ve cesaret getirir.",
+    "Denizin taşı olarak bilinir; koruma ve şifa sağlar.",
+    "Huzurlu iletişimi destekler, stresi azaltır."
+   ],
+   "story": "Eskiden denizciler tarafından güvenli yolculuklar için taşınan aquamarin, sonsuz okyanusun ruhunu taşır: sakin ama güçlü. Bu yüzük, hayatın her dalgasında doğruluğu, özgürlüğü ve içsel dengeyi arayan ruhları temsil eder.",
+   "motto": "Okyanusun cesaretini taşı.",
+   "link": "https://emcjewels.com/#r=m1",
+   "has_video": true
+  },
+  {
+   "id": "m2",
+   "no": "N°02",
+   "name": "Royal Legacy",
+   "tr_name": "Kraliyet Mirası",
+   "collection": "Erkek",
+   "stone": "Kristal kesim lapis lazuli",
+   "stone_short": "Lapis lazuli",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage esintili",
+   "color": "Mavi",
+   "price_tl": 4450,
+   "only_one": false,
+   "zodiac": [
+    "Yay",
+    "Terazi",
+    "Başak"
+   ],
+   "properties": [
+    "Bilgelik, sezgi ve içsel güç taşır.",
+    "Zihinsel açıklık ve ruhsal farkındalık getirir.",
+    "Stresi azaltır, özgüveni artırır."
+   ],
+   "story": "Antik çağlardan bu yana kralların ve bilge kişilerin taşı olarak bilinen lapis lazuli, ruhun derinliklerinden gelen bir gücü temsil eder. Bu yüzük, içindeki hakikati bulmaya cesareti olanlar için tasarlandı.",
+   "motto": "Gerçek bilgelik, derinlikten doğar.",
+   "link": "https://emcjewels.com/#r=m2",
+   "has_video": true
+  },
+  {
+   "id": "m3",
+   "no": "N°03",
+   "name": "Green Crown",
+   "tr_name": "Yeşil Taç",
+   "collection": "Erkek",
+   "stone": "Kristal kesim zümrüt",
+   "stone_short": "Zümrüt",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı vintage esintili",
+   "color": "Yeşil",
+   "price_tl": 5450,
+   "only_one": false,
+   "zodiac": [
+    "Boğa",
+    "Yengeç",
+    "Başak",
+    "Terazi"
+   ],
+   "properties": [
+    "Kalp çakrasını açar, sevgi ve şefkati artırır.",
+    "Bereket, sağlık ve huzur getirdiğine inanılır.",
+    "İç huzuru ve dengeli ilişkiler kurmayı destekler."
+   ],
+   "story": "Binlerce yıldır hükümdarların ve bilgelerin gözdesi olan zümrüt, doğanın kalbinden gelen sonsuz yaşam enerjisini taşır. Green Crown, ruhuna huzur ve doğanın kudretini taşımak isteyenler için yaratıldı.",
+   "motto": "Doğanın ruhu, parmaklarının ucunda.",
+   "link": "https://emcjewels.com/#r=m3",
+   "has_video": true
+  },
+  {
+   "id": "m4",
+   "no": "N°04",
+   "name": "Dragon Flame",
+   "tr_name": "Ejderha Alevi",
+   "collection": "Erkek",
+   "stone": "Doğal damla lal taşı",
+   "stone_short": "Lal",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Kırmızı",
+   "price_tl": 4950,
+   "only_one": false,
+   "zodiac": [
+    "Aslan",
+    "Koç",
+    "Akrep"
+   ],
+   "properties": [
+    "Tutku, güç ve cesaret taşıdır.",
+    "Negatif enerjiyi temizler, özgüveni artırır.",
+    "Kan dolaşımını desteklediği ve canlılık verdiği söylenir."
+   ],
+   "story": "Antik savaşçıların ve liderlerin taşı olan lal, ateşi içinde taşıyanların sembolüydü. Dragon Flame, ruhunun derinliklerindeki alevi özgür bırakman için yaratıldı.",
+   "motto": "Ejderhanın alevi gibi, kalbinden gelen güçle yan.",
+   "link": "https://emcjewels.com/#r=m4",
+   "has_video": true
+  },
+  {
+   "id": "m5",
+   "no": "N°05",
+   "name": "Eyes of the Tiger",
+   "tr_name": "Kaplanın Gözleri",
+   "collection": "Erkek",
+   "stone": "Doğal kaplan gözü",
+   "stone_short": "Kaplan gözü",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage esintili",
+   "color": "Sarı & Turuncu",
+   "price_tl": 3950,
+   "only_one": false,
+   "zodiac": [
+    "Aslan",
+    "İkizler",
+    "Başak"
+   ],
+   "properties": [
+    "Cesaret ve özgüven verir.",
+    "Negatif enerjiyi uzaklaştırır, kararlılığı güçlendirir.",
+    "Duygusal denge sağlar, odaklanmayı artırır."
+   ],
+   "story": "Ormanın sessizliğinde avına odaklanan bir kaplanın bakışlarını düşün. Güç, zarafet ve içgüdü dolu. Eyes of the Tiger, kalbinin sesini takip edenlerin yüzüğü.",
+   "motto": "Avcının bakışı, ruhunda saklıdır.",
+   "link": "https://emcjewels.com/#r=m5",
+   "has_video": true
+  },
+  {
+   "id": "m6",
+   "no": "N°06",
+   "name": "Eternal Heart",
+   "tr_name": "Sonsuz Kalp",
+   "collection": "Erkek",
+   "stone": "Kristal kesim lal (garnet)",
+   "stone_short": "Lal (garnet)",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Kırmızı",
+   "price_tl": 4950,
+   "only_one": false,
+   "zodiac": [
+    "Koç",
+    "Aslan",
+    "Akrep"
+   ],
+   "properties": [
+    "Sevgi, tutku ve yaşam enerjisinin taşıdır.",
+    "Cesareti artırır, kişisel gücü destekler.",
+    "Duygusal denge ve ruhsal şifa sağlar."
+   ],
+   "story": "Binlerce yıldır savaşçıların ve liderlerin parmağında taşıdığı lal, kalbin derinliklerinden gelen tutkuyu temsil eder. Eternal Heart, ruhundaki ateşi hissetmek ve dünyaya yansıtmak isteyenler için tasarlandı.",
+   "motto": "Kalbinin ateşi, ellerinde yankılansın.",
+   "link": "https://emcjewels.com/#r=m6",
+   "has_video": true
+  },
+  {
+   "id": "m7",
+   "no": "N°07",
+   "name": "Magical Universe",
+   "tr_name": "Büyülü Evren",
+   "collection": "Erkek",
+   "stone": "Mistik topaz (topaz üzeri özel kaplama)",
+   "stone_short": "Mistik topaz",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili modern vintage",
+   "color": "Mor",
+   "price_tl": 4450,
+   "only_one": false,
+   "zodiac": [
+    "Akrep",
+    "Yay",
+    "Kova"
+   ],
+   "properties": [
+    "Zihni berraklaştırır, yaratıcı düşünceyi güçlendirir.",
+    "Ruhsal enerjiyi artırır, koruma kalkanı oluşturur.",
+    "Kişiye iç huzur ve özgüven verir."
+   ],
+   "story": "Renklerin ve ışığın sonsuz dansını taşıyan bu yüzük, evrenin gizemli enerjisini parmaklarınıza getiriyor. Her parıltısında yeni bir keşif, yeni bir başlangıç saklı.",
+   "motto": "Evrenin büyüsü avuçlarının içinde.",
+   "link": "https://emcjewels.com/#r=m7",
+   "has_video": true
+  },
+  {
+   "id": "m8",
+   "no": "N°08",
+   "name": "Saints of the City",
+   "tr_name": "Şehrin Azizleri",
+   "collection": "Erkek",
+   "stone": "Doğal oniks",
+   "stone_short": "Oniks",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage, gotik esintili",
+   "color": "Siyah",
+   "price_tl": 3950,
+   "only_one": false,
+   "zodiac": [
+    "Oğlak",
+    "Akrep",
+    "Aslan"
+   ],
+   "properties": [
+    "Negatif enerjiyi emer, koruma sağlar.",
+    "Güç, cesaret ve istikrar verir.",
+    "Zor zamanlarda güven ve destek hissi yaratır."
+   ],
+   "story": "Büyük şehirlerin karmaşasında kaybolmayanların, gece ışıkları altında kendi yolunu bulanların yüzüğü. Saints of the City, kendi ruhunun koruyucusu olanlar için yaratıldı.",
+   "motto": "Kendi şehrinin azizi ol.",
+   "link": "https://emcjewels.com/#r=m8",
+   "has_video": true
+  },
+  {
+   "id": "m9",
+   "no": "N°09",
+   "name": "Ancient Shield",
+   "tr_name": "Kadim Kalkan",
+   "collection": "Erkek",
+   "stone": "Akik (agate)",
+   "stone_short": "Akik",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage esintili",
+   "color": "Kırmızı",
+   "price_tl": 3950,
+   "only_one": false,
+   "zodiac": [
+    "Koç",
+    "Boğa",
+    "İkizler"
+   ],
+   "properties": [
+    "Güç, dayanıklılık ve koruma enerjisi taşır.",
+    "Negatif enerjilere karşı kalkan oluşturur.",
+    "Stresi azaltır, iç huzuru destekler."
+   ],
+   "story": "Tarihin en eski uygarlıkları tarafından bir koruma tılsımı olarak kullanılan akik, her zaman güç, istikrar ve kararlılık sembolü olmuştur. Ancient Shield, geçmişin bilgeliğini bugünün cesaretine taşıyor.",
+   "motto": "Gücünü köklerinden al, kaderini kendin yaz.",
+   "link": "https://emcjewels.com/#r=m9",
+   "has_video": true
+  },
+  {
+   "id": "m10",
+   "no": "N°10",
+   "name": "Sultan’s Light",
+   "tr_name": "Sultan Işığı",
+   "collection": "Erkek",
+   "stone": "Doğal sultanit (zultanit)",
+   "stone_short": "Sultanit",
+   "material": "925 ayar gümüş",
+   "style": "Orta yüzyıl esintili modern vintage",
+   "color": "Sarı & Turuncu",
+   "price_tl": 5950,
+   "only_one": false,
+   "zodiac": [
+    "Terazi",
+    "Koç",
+    "Boğa"
+   ],
+   "properties": [
+    "Zihinsel netlik ve farkındalık sağlar.",
+    "Değişken enerjisi ile ruhsal dönüşüme destek olur.",
+    "Stresi azaltır, içsel dengeyi güçlendirir."
+   ],
+   "story": "",
+   "motto": "",
+   "link": "https://emcjewels.com/#r=m10",
+   "has_video": true
+  },
+  {
+   "id": "m11",
+   "no": "N°11",
+   "name": "Divine Vision",
+   "tr_name": "İlahi Görüş",
+   "collection": "Erkek",
+   "stone": "Doğal ametist (ham taş)",
+   "stone_short": "Ametist",
+   "material": "925 ayar gümüş",
+   "style": "Orta yüzyıl esintili vintage",
+   "color": "Mor",
+   "price_tl": 4450,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Kova",
+    "Yay"
+   ],
+   "properties": [
+    "Negatif enerjiyi uzaklaştırır ve huzur getirir.",
+    "Sezgileri güçlendirir, ruhsal koruma sağlar.",
+    "Stresi ve gerginliği azaltır, berrak bir zihin sunar."
+   ],
+   "story": "Antik medeniyetlerde ruhani uyanışın ve içsel dengenin taşı olarak kutsanan ametist, sahibine sonsuz bir sükûnet ve sezgi gücü armağan eder. Divine Vision, sezgilerine güvenen ve kendi yolunu aydınlatan ruhlar için tasarlandı.",
+   "motto": "Ufkunu genişlet, üçüncü gözünü aç.",
+   "link": "https://emcjewels.com/#r=m11",
+   "has_video": true
+  },
+  {
+   "id": "m12",
+   "no": "N°12",
+   "name": "Midnight Dream",
+   "tr_name": "Gece Yarısı Rüyası",
+   "collection": "Erkek",
+   "stone": "Doğal damla lapis lazuli",
+   "stone_short": "Lapis lazuli",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mavi",
+   "price_tl": 4450,
+   "only_one": false,
+   "zodiac": [
+    "Yay",
+    "Başak",
+    "Terazi"
+   ],
+   "properties": [
+    "Bilgelik ve sezgi gücünü artırır.",
+    "Zihni berraklaştırır, iç huzur sağlar.",
+    "Negatif enerjilerden korur.",
+    "Kendini ifade etme yeteneğini güçlendirir."
+   ],
+   "story": "Denizin sonsuz derinliğini ve gökyüzünün en saf maviliğini içinde barındıran bu yüzük, iç yolculuğa çıkan ruhlar için tasarlandı. Midnight Dream, ruhunun enginliğini keşfetmek isteyenler için.",
+   "motto": "Mavinin en saf haliyle özgürlüğe yelken aç.",
+   "link": "https://emcjewels.com/#r=m12",
+   "has_video": true
+  },
+  {
+   "id": "m13",
+   "no": "N°13",
+   "name": "Solar Gleam",
+   "tr_name": "Güneş Parıltısı",
+   "collection": "Erkek",
+   "stone": "Doğal amber (kehribar)",
+   "stone_short": "Amber",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Sarı & Turuncu",
+   "price_tl": 7950,
+   "only_one": true,
+   "zodiac": [
+    "Aslan",
+    "İkizler",
+    "Başak"
+   ],
+   "properties": [
+    "Pozitif enerjiyi çeker, bedeni ve ruhu dengeler.",
+    "Ağrıları hafifletir, bağışıklık sistemini güçlendirir.",
+    "Zihinsel açıklık ve duygusal denge sağlar."
+   ],
+   "story": "Güneşin sıcaklığını ve yaşam enerjisini taşıyan amber, eski çağlardan beri koruyucu bir tılsım olarak kullanıldı. Solar Gleam, her an ruhunun ışığını yansıtanlar için tasarlandı.",
+   "motto": "Güneşin sonsuz ışıltısını ruhunda taşı.",
+   "link": "https://emcjewels.com/#r=m13",
+   "has_video": true
+  },
+  {
+   "id": "m14",
+   "no": "N°14",
+   "name": "Maldive Soul",
+   "tr_name": "Maldiv Ruhu",
+   "collection": "Erkek",
+   "stone": "Doğal paraiba turmalin",
+   "stone_short": "Paraiba",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı vintage & lüks",
+   "color": "Turkuaz",
+   "price_tl": 6950,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Yengeç",
+    "Kova"
+   ],
+   "properties": [
+    "Umut, huzur ve sevgi enerjisi yayar.",
+    "Stresi azaltır, ruhsal dengelenmeye destek olur.",
+    "Yaratıcılığı ve sezgileri güçlendirir."
+   ],
+   "story": "Dünyanın en nadir taşlarından biri olan paraiba, Maldivler’in eşsiz sularını andıran rengiyle içsel huzurun ve özgürlüğün sembolüdür. Maldive Soul, ruhunun derinliklerinde sonsuz bir maviliğe yelken açmak isteyenler için tasarlandı.",
+   "motto": "Ruhunu maviliğin sonsuzluğuna bırak.",
+   "link": "https://emcjewels.com/#r=m14",
+   "has_video": true
+  },
+  {
+   "id": "m15",
+   "no": "N°15",
+   "name": "Radiant King",
+   "tr_name": "Parlayan Kral",
+   "collection": "Erkek",
+   "stone": "Kristal sitrin",
+   "stone_short": "Sitrin",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage",
+   "color": "Sarı & Turuncu",
+   "price_tl": 4950,
+   "only_one": false,
+   "zodiac": [
+    "Aslan",
+    "Başak",
+    "Terazi"
+   ],
+   "properties": [
+    "Enerji, canlılık ve mutluluk getirir.",
+    "Zihinsel netlik ve motivasyonu destekler.",
+    "Negatif enerjileri uzaklaştırır ve başarıyı teşvik eder."
+   ],
+   "story": "Parlaklığıyla karanlığı yırtan sitrin, antik zamanlardan bu yana güç ve liderliğin taşı olarak anılır. Radiant King, taşıdığı her enerjiyi parlayan bir taç gibi giyenler için tasarlandı.",
+   "motto": "Parlayan gücün tacını tak.",
+   "link": "https://emcjewels.com/#r=m15",
+   "has_video": true
+  },
+  {
+   "id": "m16",
+   "no": "N°16",
+   "name": "Blue Monarch",
+   "tr_name": "Mavi Hükümdar",
+   "collection": "Erkek",
+   "stone": "Doğal safir",
+   "stone_short": "Safir",
+   "material": "925 ayar gümüş",
+   "style": "Gotik lüks, asil vintage",
+   "color": "Mavi",
+   "price_tl": 9950,
+   "only_one": true,
+   "zodiac": [
+    "Yay",
+    "Aslan",
+    "Başak"
+   ],
+   "properties": [
+    "Bilgelik, sadakat ve ruhsal denge taşıdır.",
+    "Zihni berraklaştırır, odaklanmayı artırır.",
+    "Stresi azaltır ve iç huzuru destekler."
+   ],
+   "story": "Gökyüzünün enginliğinden ilham alan Blue Monarch, gücün ve bilgelikle hükmetmenin sembolüdür. Safirin derin mavi rengi, sonsuz bir özgürlük ve liderlik ruhunu taşır.",
+   "motto": "Gökyüzünün lideri, bilgeliğin kanatlarında.",
+   "link": "https://emcjewels.com/#r=m16",
+   "has_video": true
+  },
+  {
+   "id": "m17",
+   "no": "N°17",
+   "name": "Ring of Ra",
+   "tr_name": "Ra’nın Yüzüğü",
+   "collection": "Erkek",
+   "stone": "Doğal sultanit (zultanit)",
+   "stone_short": "Sultanit",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı vintage & lüks zarafet",
+   "color": "Sarı & Turuncu",
+   "price_tl": 8950,
+   "only_one": true,
+   "zodiac": [
+    "Terazi",
+    "Koç",
+    "Boğa"
+   ],
+   "properties": [
+    "Zihinsel netlik ve farkındalık sağlar.",
+    "Değişken enerjisi ile ruhsal dönüşüme destek olur.",
+    "Stresi azaltır, içsel dengeyi güçlendirir."
+   ],
+   "story": "Antik Mısır’ın güneş tanrısı Ra’nın kutsal enerjisinden ilham alınarak tasarlanan bu yüzük, ışıkla birlikte değişen renkleriyle kullanıcısına ilahi bir koruma ve rehberlik sunar. Ring of Ra, her adımında bir lider gibi ışığını yaymak isteyenler için.",
+   "motto": "Güneşin gücünü taşı, kaderini aydınlat.",
+   "link": "https://emcjewels.com/#r=m17",
+   "has_video": true
+  },
+  {
+   "id": "m18",
+   "no": "N°18",
+   "name": "Cosmic Voyage",
+   "tr_name": "Kozmik Yolculuk",
+   "collection": "Erkek",
+   "stone": "Doğal iyolit spinal",
+   "stone_short": "İyolit",
+   "material": "925 ayar gümüş",
+   "style": "Modern vintage esintili",
+   "color": "Mavi",
+   "price_tl": 4950,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Yay",
+    "Akrep"
+   ],
+   "properties": [
+    "İçsel keşif ve ruhsal rehberlik sağlar.",
+    "Sezgileri kuvvetlendirir ve karar verme yetisini güçlendirir.",
+    "Stresi azaltır, zihni sakinleştirir."
+   ],
+   "story": "İyolit, antik denizciler tarafından yıldızları bulmak için kullanılırdı. Cosmic Voyage, içsel evreninde yeni yollar keşfetmek isteyenler için tasarlandı.",
+   "motto": "Kendi yıldızınla yol al.",
+   "link": "https://emcjewels.com/#r=m18",
+   "has_video": true
+  },
+  {
+   "id": "w1",
+   "no": "N°01",
+   "name": "Ethereal Grace",
+   "tr_name": "Ruhani Zarafet",
+   "collection": "Kadın",
+   "stone": "Doğal ametist (ham taş)",
+   "stone_short": "Ametist",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mor",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Kova",
+    "Yay"
+   ],
+   "properties": [
+    "Zihni sakinleştirir, iç huzuru destekler.",
+    "Negatif enerjiyi dönüştürerek güçlü bir koruma alanı oluşturur.",
+    "Sezgileri güçlendirir, spiritüel farkındalığı artırır."
+   ],
+   "story": "Ametist, kadim çağlardan beri kralların, mistiklerin ve sanatçıların taşı olarak bilinir. Karmaşanın ortasında zihni dinginleştiren bu taş, ruhuna yön gösterir. Duyguların yoğunlaştığı anlarda kalbine sessiz bir denge sunar. Karanlıkla baş etmeyi bilenlerin taşıdır.",
+   "motto": "Huzurun asaletini taşı.",
+   "link": "https://emcjewels.com/#r=w1",
+   "has_video": false
+  },
+  {
+   "id": "w2",
+   "no": "N°02",
+   "name": "Deep Compass",
+   "tr_name": "Derin Pusula",
+   "collection": "Kadın",
+   "stone": "Doğal iyolit (ham taş)",
+   "stone_short": "İyolit",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mavi",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Yengeç",
+    "Terazi"
+   ],
+   "properties": [
+    "İçsel yön bulma duygusunu geliştirir, sezgiyi güçlendirir.",
+    "Zihni berraklaştırır, karar verme süreçlerini destekler.",
+    "Geçmişten gelen duygusal yükleri arındırmaya yardımcı olur."
+   ],
+   "story": "Viking denizciler, açık denizlerde yön bulmak için iyolit taşını kullanırdı. Gökyüzü bulutlarla örtülse bile bu taşın içindeki yansıma yönlerini gösterirdi. Bu yüzük de yaşamın karmaşasında yolunu kaybedenlere içsel bir pusula sunar: sessiz ama net, derin ama rehber.",
+   "motto": "Yolunu kalbinle bul.",
+   "link": "https://emcjewels.com/#r=w2",
+   "has_video": false
+  },
+  {
+   "id": "w3",
+   "no": "N°03",
+   "name": "Flame Drop",
+   "tr_name": "Alev Damlası",
+   "collection": "Kadın",
+   "stone": "Doğal turmalin (ham taş)",
+   "stone_short": "Turmalin",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Sarı & Turuncu",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Akrep",
+    "Koç",
+    "Aslan"
+   ],
+   "properties": [
+    "Negatif enerjiyi dönüştürür, güçlü bir koruma kalkanı oluşturur.",
+    "Duygusal tıkanıklıkları çözerek içsel özgürlüğü destekler.",
+    "Yaratıcılığı ve tutkuyu artırır, ilham verir."
+   ],
+   "story": "Kadim uygarlıklar, turmalin taşını ruhsal arınma ve kötü enerjilerden korunmak için kullanırdı. Bu taş, kalpte bastırılmış duyguları serbest bırakır; tutkuyu, cesareti ve dönüşümü temsil eder. Gözyaşı formundaki bu yüzük ise içten gelen gücü zarafetle taşır.",
+   "motto": "Alevini özgür bırak.",
+   "link": "https://emcjewels.com/#r=w3",
+   "has_video": false
+  },
+  {
+   "id": "w4",
+   "no": "N°04",
+   "name": "Verdant Soul",
+   "tr_name": "Yeşeren Ruh",
+   "collection": "Kadın",
+   "stone": "Doğal yeşil turmalin (ham taş)",
+   "stone_short": "Yeşil turmalin",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Yeşil",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Boğa",
+    "Başak",
+    "Terazi"
+   ],
+   "properties": [
+    "Kalbi açar, sevgi alışverişini güçlendirir.",
+    "Bedeni ve ruhu canlandırır, yaşama sevinci verir.",
+    "Doğayla uyumu artırır, stresi dönüştürür."
+   ],
+   "story": "Yeşil turmalin, doğanın kalbinden gelen bir armağan gibidir. Her bir tonu, yeniden başlama enerjisini ve ruhsal yenilenmeyi simgeler. Bu yüzük; yaşamı, sevgiyi ve dengeyi içinde taşıyanlara ilham olur.",
+   "motto": "Doğanın gücünü parmağında taşı.",
+   "link": "https://emcjewels.com/#r=w4",
+   "has_video": false
+  },
+  {
+   "id": "w5",
+   "no": "N°05",
+   "name": "Crimson Pulse",
+   "tr_name": "Kızıl Nabız",
+   "collection": "Kadın",
+   "stone": "Doğal lal spinel (ham taş)",
+   "stone_short": "Lal spinel",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Kırmızı",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Koç",
+    "Akrep",
+    "Oğlak"
+   ],
+   "properties": [
+    "İçsel gücü ve özgüveni artırır.",
+    "Kararlılık ve netlik sağlar, yön belirlemeye yardımcı olur.",
+    "Tutkuyu ve hayata bağlılığı ateşler."
+   ],
+   "story": "Lal spinel, eski savaşçılar tarafından cesaret vermesi için zırhların içine gizlenirdi. Bugün ise kalbin ateşini canlı tutmak, karanlıkta bile ileriye yürümek için taşınır. Bu yüzük, seni içindeki kızıl nabzı duymaya davet ediyor.",
+   "motto": "Tutkunu serbest bırak.",
+   "link": "https://emcjewels.com/#r=w5",
+   "has_video": false
+  },
+  {
+   "id": "w6",
+   "no": "N°06",
+   "name": "Moon Shell",
+   "tr_name": "Ay Kabuğu",
+   "collection": "Kadın",
+   "stone": "Doğal sedef (ham taş)",
+   "stone_short": "Sedef",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Beyaz",
+   "price_tl": 2950,
+   "only_one": false,
+   "zodiac": [
+    "Yengeç",
+    "Balık",
+    "Terazi"
+   ],
+   "properties": [
+    "Dişil enerjiyi güçlendirir, sezgileri artırır.",
+    "Huzur ve duygusal denge sağlar.",
+    "Negatif enerjileri emerek kişinin çevresiyle uyumunu yükseltir."
+   ],
+   "story": "Okyanusun içinde yıllarca saklanmış bu zarif taş, yumuşaklığın ve derin gücün sembolüdür. Sedef, iç sesini dinlemeyi bilen ruhlara yol gösterir. Bu yüzük, ay ışığını parmağında taşımak isteyenlere bir davettir: sessizce parlar ama asla sönmez.",
+   "motto": "Ay ışığını yansıt.",
+   "link": "https://emcjewels.com/#r=w6",
+   "has_video": false
+  },
+  {
+   "id": "w7",
+   "no": "N°07",
+   "name": "Raw Flame",
+   "tr_name": "Ham Alev",
+   "collection": "Kadın",
+   "stone": "Doğal kök yakut (ham taş)",
+   "stone_short": "Kök yakut",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Pembe",
+   "price_tl": 3950,
+   "only_one": false,
+   "zodiac": [
+    "Aslan",
+    "Koç",
+    "Yengeç"
+   ],
+   "properties": [
+    "Kalp çakrasını aktive eder, sevgi ve tutkuyu güçlendirir.",
+    "Cesaret verir, içsel kararlılığı yükseltir.",
+    "Hayata karşı canlılık, dinamizm ve özgüven kazandırır."
+   ],
+   "story": "Kök yakut, yeryüzünün en güçlü ateş taşlarından biridir. Doğal haliyle işlenmeden gelen bu taş, içgüdüsel gücü ve kök enerjiyi temsil eder. Bu yüzük, ne olursa olsun sönmeyen bir iç ateşin parmak ucundaki halidir.",
+   "motto": "Aşkı ateşle.",
+   "link": "https://emcjewels.com/#r=w7",
+   "has_video": false
+  },
+  {
+   "id": "w8",
+   "no": "N°08",
+   "name": "Silent Authority",
+   "tr_name": "Sessiz Otorite",
+   "collection": "Kadın",
+   "stone": "Doğal safir (ham taş)",
+   "stone_short": "Safir",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mavi",
+   "price_tl": 4450,
+   "only_one": false,
+   "zodiac": [
+    "Başak",
+    "Kova",
+    "Yay"
+   ],
+   "properties": [
+    "Bilgelik, sadakat ve ruhsal netlik sağlar.",
+    "Zihni berraklaştırır, doğru kararlar vermeye destek olur.",
+    "İçsel gücü artırır, liderlik enerjisini dengeler."
+   ],
+   "story": "Safir, tarihte kralların ve bilginlerin taşıydı. Göz alıcı rengiyle değil, verdiği içsel sezgiyle ışıldar. Bu yüzük, görünmeden hükmedenlere, konuşmadan yönetenlere ilham verir. Güçlü olmak için yüksek ses gerekmez.",
+   "motto": "Sessizliğinle hükmet.",
+   "link": "https://emcjewels.com/#r=w8",
+   "has_video": false
+  },
+  {
+   "id": "w9",
+   "no": "N°09",
+   "name": "Golden Spirit",
+   "tr_name": "Altın Ruh",
+   "collection": "Kadın",
+   "stone": "Doğal sitrin (ham taş)",
+   "stone_short": "Sitrin",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Sarı & Turuncu",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Aslan",
+    "İkizler",
+    "Yay"
+   ],
+   "properties": [
+    "Bolluk ve bereket enerjisini çeker.",
+    "Kendine güveni artırır, başarı odaklı çalışmaları destekler.",
+    "Ruh halini yükseltir, neşe ve pozitiflik yayar."
+   ],
+   "story": "Sitrin, yüzyıllardır tüccarların ve sanatçıların taşı olarak bilinir. Işıkla dolu yapısı, ruhu karanlık düşüncelerden arındırır. Bu yüzük, kendi gücünü fark eden, ışığını cömertçe paylaşan ruhlar içindir. Girdiği yeri aydınlatanların mührü.",
+   "motto": "Gücünü ışıktan al.",
+   "link": "https://emcjewels.com/#r=w9",
+   "has_video": false
+  },
+  {
+   "id": "w10",
+   "no": "N°10",
+   "name": "Heart Whisper",
+   "tr_name": "Kalbin Fısıltısı",
+   "collection": "Kadın",
+   "stone": "Doğal pembe turmalin (ham taş)",
+   "stone_short": "Pembe turmalin",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Pembe",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [],
+   "properties": [],
+   "story": "",
+   "motto": "",
+   "link": "https://emcjewels.com/#r=w10",
+   "has_video": false
+  },
+  {
+   "id": "w11",
+   "no": "N°11",
+   "name": "Sky Guardian",
+   "tr_name": "Gökyüzü Muhafızı",
+   "collection": "Kadın",
+   "stone": "Doğal turkuaz / firuze (ham taş)",
+   "stone_short": "Firuze",
+   "material": "925 ayar gümüş (altın kaplama)",
+   "style": "Osmanlı esintili vintage",
+   "color": "Turkuaz",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Yay",
+    "Başak",
+    "Balık"
+   ],
+   "properties": [
+    "Negatif enerjiyi emer, koruyucu bir kalkan oluşturur.",
+    "Duygusal dengeyi sağlar, iç huzuru artırır.",
+    "İletişimi kuvvetlendirir, içsel bilgelikle bağ kurmayı destekler."
+   ],
+   "story": "Firuze, gökyüzüyle yerin arasında bir köprü gibidir. Kadim Türkler ve Orta Doğu medeniyetleri tarafından nazardan korunmak ve iç huzuru sağlamak için taşınmıştır. Bu yüzük, yüreğiyle düşünen, kelimeleri ruhuyla hissedenlere ithaf edilmiştir.",
+   "motto": "Kendini gökyüzüne bırak.",
+   "link": "https://emcjewels.com/#r=w11",
+   "has_video": false
+  },
+  {
+   "id": "w12",
+   "no": "N°12",
+   "name": "Clarity Crown",
+   "tr_name": "Berraklık Tacı",
+   "collection": "Kadın",
+   "stone": "Doğal mavi topaz (ham taş)",
+   "stone_short": "Mavi topaz",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mavi",
+   "price_tl": 3950,
+   "only_one": false,
+   "zodiac": [
+    "İkizler",
+    "Terazi",
+    "Balık"
+   ],
+   "properties": [
+    "Zihni berraklaştırır, konsantrasyonu artırır.",
+    "Duyguların dengelenmesine ve net iletişime destek olur.",
+    "İlham, sezgi ve içsel huzur enerjisi yayar."
+   ],
+   "story": "Mavi topaz, kadim uygarlıklarda bilgelik taşı olarak kullanılmıştır. Görünenin ötesini sezmek, kelimelerle kalplere dokunmak isteyen ruhlara rehber olur. Bu yüzük, düşüncelerini özgürce ifade eden, zihni kadar kalbiyle de görenler içindir.",
+   "motto": "Düşünceni ışıltıyla kuşan.",
+   "link": "https://emcjewels.com/#r=w12",
+   "has_video": false
+  },
+  {
+   "id": "w13",
+   "no": "N°13",
+   "name": "Violet Rise",
+   "tr_name": "Mor Uyanış",
+   "collection": "Kadın",
+   "stone": "Doğal ametist kristal (ham taş, şeffaf form)",
+   "stone_short": "Ametist kristal",
+   "material": "925 ayar gümüş",
+   "style": "Osmanlı esintili vintage",
+   "color": "Mor",
+   "price_tl": 3450,
+   "only_one": false,
+   "zodiac": [
+    "Balık",
+    "Yay",
+    "Başak"
+   ],
+   "properties": [
+    "Zihinsel farkındalığı ve spiritüel sezgileri güçlendirir.",
+    "Meditasyon, şifa ve enerji çalışmaları için idealdir.",
+    "Negatif düşünceleri arındırarak berraklık sağlar."
+   ],
+   "story": "Ametistin kristal formu, saf bilginin ve ruhsal temizliğin taşıdır. Bedenin ötesinde bir ışıkla bağlantıya geçmek isteyenlerin elinde parlayan bu yüzük, duru görünün, ilhamın ve sezginin sembolüdür.",
+   "motto": "Zihnini sustur, ruhunu dinle.",
+   "link": "https://emcjewels.com/#r=w13",
+   "has_video": false
+  }
+ ]
+}
