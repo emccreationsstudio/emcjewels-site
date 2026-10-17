@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="EMC Jewels — el yapımı, 925 ayar gümüş, doğal taşlı yüzükler. İstanbul.">
+<title>EMC Jewels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Figtree:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@500;600;700&display=swap">
+<style>
+/* Layout: midnight-velvet showroom — split hero, filter bar, gallery grid, detail sheet, cart drawer.
+   Deliberately single dark theme (taken from the logo's navy velvet). */
+:root{
+  --ink:#060a14;          /* page ground */
+  --velvet:#0b1430;       /* raised surfaces */
+  --navy:#16244c;         /* borders on hover, chips */
+  --silver:#cdd3dc;       /* 925 silver — the accent */
+  --fg:#eef1f6;
+  --muted:#8c94a8;
+  --line:rgba(205,211,220,.14);
+  --stone:#9db7ff;        /* overridden per ring */
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,4vw,56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:1px solid var(--silver);outline-offset:3px}
+.wrap{padding-inline:var(--gut);max-width:1440px;margin-inline:auto}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.01em}
+
+/* draft ribbon + announcement */
+.draft{background:var(--silver);color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:6px 16px}
+.announce{border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);text-align:center;padding:9px 16px;letter-spacing:.04em}
+.announce b{color:var(--fg);font-weight:500}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(6,10,20,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:84px}
+.brand img{height:64px;width:auto;display:block}
+nav.main{display:flex;align-items:center;gap:clamp(18px,2.6vw,44px);font-family:"Montserrat",var(--body);font-weight:600;font-size:clamp(12px,.95vw,14px);letter-spacing:.3em;text-transform:uppercase;white-space:nowrap}
+nav.main a{margin-right:-.3em}
+nav.main a{text-decoration:none;color:rgba(232,236,243,.62);transition:color .2s}
+nav.main a:hover,nav.main a.on{color:#fff}
+.tools{display:flex;gap:6px;align-items:center}
+.iconbtn{background:none;border:1px solid transparent;border-radius:999px;height:40px;min-width:40px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 12px;font-size:13px}
+.iconbtn:hover{border-color:var(--line)}
+.iconbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+.count{font-family:var(--mono);font-size:11px;background:var(--silver);color:var(--ink);border-radius:999px;min-width:18px;height:18px;display:inline-grid;place-items:center;padding:0 5px}
+@media (max-width:860px){nav.main{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 78% 40%,#13245a 0%,var(--velvet) 38%,var(--ink) 78%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,80px);align-items:center;padding-block:clamp(40px,7vw,96px)}
+.hero h1{font-size:clamp(44px,7.2vw,104px);line-height:.95;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--silver)}
+.hero p.lede{max-width:46ch;color:var(--muted);font-size:clamp(15px,1.3vw,17px);margin:28px 0 36px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px;border-radius:999px;border:1px solid var(--silver);background:var(--silver);color:var(--ink);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-1px);background:#fff}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--silver);background:transparent}
+.hero-fig{position:relative;margin:0;aspect-ratio:4/5;max-width:100%;border-radius:2px;overflow:hidden}
+.hero-fig img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(1.18);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.26) translate(-1%,-1%)}}
+.hero-fig figcaption{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:end;gap:12px;padding:16px 18px;background:rgba(6,10,20,.66);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line)}
+.hero-fig figcaption b{font-family:var(--display);font-weight:400;font-size:22px;display:block;line-height:1.1}
+.hero-fig figcaption span{font-size:12px;color:var(--muted)}
+.tag-one{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--silver);padding:4px 8px;white-space:nowrap}
+.hero-stats{display:flex;gap:clamp(20px,4vw,48px);margin-top:48px;flex-wrap:wrap}
+.hero-stats div{font-family:var(--display);font-size:32px;line-height:1}
+.hero-stats small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-fig{aspect-ratio:1/1}}
+
+/* promise strip */
+.strip{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap}
+.strip .track{display:inline-flex;gap:48px;padding-block:16px;animation:marq 38s linear infinite;font-family:var(--display);font-style:italic;font-size:18px;color:var(--silver)}
+.strip .track span::after{content:"✦";font-style:normal;font-size:10px;margin-left:48px;color:var(--muted);vertical-align:middle}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* section heads */
+section.block{padding-block:clamp(56px,8vw,120px)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.head h2{font-size:clamp(34px,4.6vw,64px);line-height:1}
+.head p{color:var(--muted);max-width:44ch;margin:0}
+
+/* collection switch + filters */
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px}
+.switch button{background:none;border:0;border-radius:999px;padding:9px 20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.switch button[aria-pressed="true"]{background:var(--silver);color:var(--ink)}
+.filters{display:grid;gap:14px;margin-bottom:32px;padding:20px 0;border-block:1px solid var(--line)}
+.frow{display:flex;gap:14px;align-items:center;min-width:0}
+.frow .eyebrow{flex:0 0 92px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:2px;min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;color:var(--muted);display:inline-flex;gap:8px;align-items:center;transition:all .2s}
+.chip:hover{color:var(--fg);border-color:var(--navy)}
+.chip[aria-pressed="true"]{color:var(--ink);background:var(--silver);border-color:var(--silver)}
+.chip .g{font-size:15px;line-height:1}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.result{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.result button{background:none;border:0;color:var(--silver);text-decoration:underline;text-underline-offset:3px;padding:0;font-family:var(--mono);font-size:12px}
+@media (max-width:600px){.frow{flex-direction:column;align-items:stretch;gap:8px}.frow .eyebrow{flex:none}}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(14px,2vw,28px)}
+.card{position:relative;background:none;border:0;padding:0;text-align:left;display:block;width:100%}
+.card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--velvet)}
+.card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.32);transition:opacity .6s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card .ph img.b{opacity:0}
+.card:hover .ph img{transform:scale(1.4)}
+.card:hover .ph img.b{opacity:1}
+.card .no{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:11px;color:var(--fg);letter-spacing:.1em;mix-blend-mode:difference}
+.card .one{position:absolute;top:10px;right:10px;background:rgba(6,10,20,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--fg)}
+.card .glow{position:absolute;inset:auto 0 0 0;height:3px;background:var(--stone);box-shadow:0 0 18px var(--stone);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.card:hover .glow{transform:scaleX(1)}
+.card .meta{display:flex;justify-content:space-between;gap:12px;padding-top:14px;align-items:start}
+.card h3{font-size:22px;line-height:1.15}
+.card .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.card .price{font-family:var(--mono);font-size:13px;white-space:nowrap;padding-top:4px;font-variant-numeric:tabular-nums}
+.card .ph img{transform:scale(var(--z,1.32))}
+.card:hover .ph img{transform:scale(calc(var(--z,1.32) + .08))}
+.gal .main img{transform:scale(var(--gz,1.15))!important}
+.feature{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--line)}
+.feature .pics{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.feature .pics img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.feature .txt{padding:clamp(32px,6vw,88px) var(--gut);display:flex;flex-direction:column;justify-content:center;gap:24px}
+.feature h2{font-size:clamp(34px,4.6vw,64px);line-height:1}
+.feature p{color:var(--muted);max-width:44ch;margin:0}
+@media (max-width:860px){.feature{grid-template-columns:1fr}}
+.empty{grid-column:1/-1;padding:48px 0;color:var(--muted);text-align:center}
+
+/* women's placeholder */
+.women{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center;border:1px solid var(--line);padding:clamp(24px,5vw,64px)}
+.women h3{font-size:clamp(30px,4vw,52px);line-height:1.05}
+.women p{color:var(--muted);max-width:44ch}
+.women .ghostgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.women .ghostgrid i{aspect-ratio:4/5;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.14em}
+@media (max-width:760px){.women{grid-template-columns:1fr}}
+
+/* atelier */
+.atelier{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:0;border-block:1px solid var(--line)}
+.atelier figure{margin:0;position:relative;min-height:0;aspect-ratio:1251/784;align-self:center;padding:clamp(16px,3vw,48px)}
+.atelier figure img{position:absolute;inset:clamp(16px,3vw,48px);width:calc(100% - 2*clamp(16px,3vw,48px));height:calc(100% - 2*clamp(16px,3vw,48px));object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.atelier .txt{padding:clamp(32px,6vw,88px) var(--gut);display:flex;flex-direction:column;justify-content:center;gap:28px;background:rgba(8,14,34,.55)}
+.atelier h2{font-size:clamp(32px,4vw,56px);line-height:1.02}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;margin:0;padding:0;list-style:none}
+.pillars li{border-top:1px solid var(--line);padding-top:14px}
+.pillars b{display:block;font-family:var(--display);font-weight:400;font-size:20px;margin-bottom:4px}
+.pillars span{color:var(--muted);font-size:14px}
+@media (max-width:860px){.atelier{grid-template-columns:1fr}.atelier figure{min-height:0}}
+@media (max-width:460px){.pillars{grid-template-columns:1fr}}
+
+/* footer */
+footer{padding-block:64px 40px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
+.fgrid h4{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.fgrid a{text-decoration:none;color:var(--fg);opacity:.85}
+.fgrid a:hover{opacity:1;text-decoration:underline}
+.fbrand img{height:52px;width:auto}
+.fbrand p{color:var(--muted);max-width:34ch;font-size:14px}
+.legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.pay{display:flex;gap:8px;flex-wrap:wrap}
+.pay span{border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+
+/* overlay sheets */
+.scrim{position:fixed;inset:0;background:rgba(2,4,10,.7);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:70;inset:0;display:grid;place-items:center;padding:clamp(0px,3vw,40px);pointer-events:none}
+.sheet .panel{pointer-events:auto;background:var(--ink);border:1px solid var(--line);width:min(1180px,100%);max-height:100%;overflow:auto;display:grid;grid-template-columns:1.1fr 1fr;opacity:0;transform:translateY(16px);transition:opacity .35s,transform .35s}
+.sheet.on .panel{opacity:1;transform:none}
+.sheet:not(.on) .panel{visibility:hidden}
+.gal{position:relative;background:var(--velvet);min-width:0}
+.gal .main{aspect-ratio:4/5;overflow:hidden;position:relative}
+.gal .main img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.15)}
+.thumbs{display:flex;gap:8px;padding:10px}
+.thumbs button{border:1px solid var(--line);padding:0;width:64px;height:80px;overflow:hidden;background:none;opacity:.6}
+.thumbs button[aria-current="true"]{opacity:1;border-color:var(--silver)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{padding:clamp(20px,3.5vw,48px);display:flex;flex-direction:column;gap:22px;min-width:0}
+.info .close{align-self:flex-end;margin:-8px -8px 0 0}
+.info h2{font-size:clamp(34px,4vw,54px);line-height:1}
+.info .tr{font-family:var(--display);font-style:italic;color:var(--silver);font-size:20px;margin-top:6px}
+.info .pr{font-family:var(--mono);font-size:20px;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.info .pr small{font-size:11px;color:var(--muted);letter-spacing:.08em}
+.quote{font-family:var(--display);font-style:italic;font-size:20px;line-height:1.35;border-left:2px solid var(--stone);padding-left:16px;color:var(--fg)}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:0;font-size:14px}
+.specs dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.specs dd{margin:0}
+.field{display:grid;gap:8px}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.sizes button{width:44px;height:40px;border:1px solid var(--line);background:none;font-family:var(--mono);font-size:13px}
+.sizes button[aria-pressed="true"]{background:var(--silver);color:var(--ink);border-color:var(--silver)}
+.field input{height:46px;background:var(--velvet);border:1px solid var(--line);color:var(--fg);padding:0 14px;font:inherit;font-size:15px;border-radius:0}
+.field input:focus{outline:none;border-color:var(--silver)}
+.hint{font-size:12px;color:var(--muted)}
+.err{font-size:12px;color:#ffb4a8}
+.add{width:100%;justify-content:center}
+details.acc{border-top:1px solid var(--line)}
+details.acc:last-of-type{border-bottom:1px solid var(--line)}
+details.acc summary{list-style:none;cursor:pointer;padding:14px 0;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:16px;line-height:1}
+details.acc[open] summary::after{content:"–"}
+details.acc .body{padding-bottom:16px;color:var(--muted);font-size:14px}
+details.acc ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.zods{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.zods span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--fg)}
+@media (max-width:860px){.sheet{padding:0}.sheet .panel{grid-template-columns:1fr;height:100%}.gal .main{aspect-ratio:1/1}}
+
+/* cart drawer */
+.drawer{position:fixed;z-index:80;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--ink);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.on{transform:none}
+.drawer:not(.on){visibility:hidden;transition:transform .4s,visibility 0s .4s}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:26px}
+.lines{flex:1;overflow:auto;padding:8px 24px}
+.line{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
+.line img{width:72px;height:90px;object-fit:cover}
+.line b{font-family:var(--display);font-weight:400;font-size:18px;display:block}
+.line small{display:block;color:var(--muted);font-size:12px}
+.line .rm{background:none;border:0;color:var(--muted);font-size:12px;text-decoration:underline;padding:0;margin-top:6px}
+.line .lp{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.df{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:12px}
+.sumrow{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sumrow.total{color:var(--fg);font-family:var(--mono);font-size:16px}
+.secure{display:flex;gap:8px;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+.notice{border:1px solid var(--line);background:var(--velvet);padding:14px;font-size:13px;color:var(--muted)}
+.notice b{color:var(--fg);font-weight:500}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--silver);color:var(--ink);padding:12px 20px;border-radius:999px;font-size:13px;font-weight:500;opacity:0;transition:all .3s;z-index:90;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+
+/* gate: WOMAN | MAN */
+.gate{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.door{position:relative;display:block;overflow:hidden;text-decoration:none;color:var(--fg);aspect-ratio:4/5;max-height:88vh;width:100%;background:var(--ink)}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.82);transform:scale(1.02);transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .8s}
+.door.w img{object-position:50% 38%}
+.door.m img{object-position:50% 45%}
+.door::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0) 45%,rgba(6,10,20,.88) 100%);pointer-events:none}
+.door:hover img,.door:focus-visible img{transform:scale(1.07);filter:grayscale(1) contrast(1.1) brightness(.95)}
+.door .lab{position:absolute;z-index:1;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:clamp(20px,4vw,48px);display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.door .big{font-family:var(--display);font-weight:400;font-size:clamp(56px,9vw,148px);line-height:.85;letter-spacing:.02em}
+.door .side{display:flex;gap:16px 20px;align-items:center;flex-wrap:wrap}
+.door .side .eyebrow{color:var(--silver)}
+.door .go{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border:1px solid var(--silver);border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
+.door:hover .go,.door:focus-visible .go{background:var(--silver);color:var(--ink)}
+.gate-cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--line)}
+.gate-cap p{margin:0;color:var(--muted);font-size:14px}
+@media (max-width:760px){.gate{grid-template-columns:1fr}.door{aspect-ratio:1/1}}
+@media (prefers-reduced-motion:reduce){.door img{transition:none}}
+
+/* catalog — light, quiet, boutique-style */
+.lighttone{--ink:#f6f4f0;--velvet:#ebe8e2;--navy:#cfcac1;--silver:#151515;--fg:#151515;--muted:#77736c;--line:rgba(21,21,21,.12);background:var(--ink);color:var(--fg);color-scheme:light}
+.lighttone .btn:hover{background:#000}
+.lighttone .btn.ghost:hover{background:transparent;border-color:var(--fg)}
+.catalog{padding-block:clamp(48px,6vw,88px)}
+.cat-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.cat-head h2{font-size:clamp(34px,4.6vw,60px);line-height:1}
+.quick{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;padding-bottom:16px;font-size:13px}
+.quick::-webkit-scrollbar{display:none}
+.quick button{background:none;border:0;border-bottom:1px solid transparent;padding:4px 0;color:var(--muted);white-space:nowrap;letter-spacing:.02em}
+.quick button:hover{color:var(--fg)}
+.quick button[aria-pressed="true"]{color:var(--fg);border-color:var(--fg)}
+.toolbar{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:calc(84px + env(safe-area-inset-top,0px));z-index:5;background:var(--ink);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding-block:14px;padding-inline:14px;border-block:1px solid var(--line);margin-bottom:36px;background:rgba(6,10,20,.72)}
+.tbtn{justify-self:start;background:none;border:0;padding:6px 0;display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.tbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
+.tbtn .fc{font-family:var(--mono);font-size:11px;background:var(--fg);color:var(--ink);border-radius:999px;min-width:18px;height:18px;display:inline-grid;place-items:center;padding:0 5px}
+#resultTxt{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.sort{justify-self:end;display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.sort select{background:none;border:0;color:var(--fg);font:inherit;font-size:12px;letter-spacing:.06em;cursor:pointer;padding:4px 0}
+.catalog .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 16px}
+.catalog .card .ph{aspect-ratio:3/4;background:#0d1220}
+.catalog .card .no,.catalog .card .glow{display:none}
+.catalog .card .one{left:10px;right:auto;top:10px;background:var(--ink);color:var(--fg);border-color:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none}
+.catalog .card .meta{flex-direction:column;align-items:center;text-align:center;gap:6px;padding-top:16px}
+.catalog .card h3{font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.catalog .card .sub{font-size:12px;margin-top:4px}
+.catalog .card .price{font-family:var(--body);font-size:13px;padding:0;letter-spacing:.04em}
+@media (max-width:1000px){.catalog .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.catalog .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 10px}.toolbar{grid-template-columns:auto 1fr;}#resultTxt{display:none}.catalog .card h3{font-size:11px;letter-spacing:.12em}}
+/* filter drawer (left) */
+.fdrawer{left:0;right:auto;border-left:0;border-right:1px solid var(--line);transform:translateX(-100%)}
+.fdrawer .fbody{flex:1;overflow:auto;padding:8px 24px 24px;display:grid;gap:28px;align-content:start}
+.fdrawer .fbody h4{margin:0 0 12px;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fdrawer .chips{flex-wrap:wrap;overflow:visible}
+.fdrawer .df{grid-template-columns:1fr 1fr}
+.fdrawer .df .btn{justify-content:center;padding:0 12px}
+.tbtn .fc[hidden]{display:none}
+
+/* satin fabric ground */
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(4,7,18,.12),rgba(4,7,18,.32)),url(img/satin3_l.jpg) center/cover no-repeat,var(--ink);pointer-events:none}
+@media (max-aspect-ratio:1/1){body::before{background:linear-gradient(rgba(4,7,18,.12),rgba(4,7,18,.32)),url(img/satin3.jpg) center/cover no-repeat,var(--ink)}}
+.drawer,.sheet .panel{background:linear-gradient(rgba(6,10,20,.80),rgba(6,10,20,.88)),url(img/satin3.jpg) center/cover}
+
+/* Vogue-style Didone headings */
+h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-variation-settings:"opsz" 28;font-weight:500}
+#colTitle,.feature h2,.atelier h2{text-transform:uppercase;letter-spacing:-.005em;line-height:1.14;padding-top:.08em}
+#colTitle{font-size:clamp(44px,6.4vw,96px)}
+.feature h2,.atelier h2{font-size:clamp(30px,3.8vw,56px)}
+.door .big{font-weight:500;letter-spacing:-.01em;font-variation-settings:"opsz" 28;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+
+/* catalog cards: centered, equal size, b&w until hover */
+.catalog .card .ph img{transform:none!important;object-position:50% 50%;filter:grayscale(1) contrast(1.05);transition:filter .6s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.catalog .card:hover .ph img,.catalog .card:focus-visible .ph img{filter:grayscale(0) contrast(1);transform:scale(1.04)!important}
+@media (hover:none){.catalog .card .ph img{filter:none}}
+
+/* product page = catalog spread */
+.sheet{padding:0}
+.sheet .panel{display:block;grid-template-columns:none;width:min(1320px,100%);height:100%;max-height:100%;border-top:0;border-bottom:0}
+.lb{padding:0 clamp(16px,4vw,56px) 40px}
+.lb-top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;background:linear-gradient(rgba(6,10,20,.95),rgba(6,10,20,.8));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sp{display:grid;gap:clamp(24px,4vw,64px);padding-block:clamp(28px,4vw,56px);border-bottom:1px solid var(--line)}
+.sp1{grid-template-columns:1.3fr 1fr;align-items:start}
+.sp-left,.sp-right,.sp2-text{min-width:0}
+.lb-title{display:flex;align-items:center;gap:clamp(14px,2vw,24px);margin-bottom:22px}
+.lb-title .num{flex:0 0 auto;width:clamp(48px,5vw,68px);height:clamp(48px,5vw,68px);border-radius:50%;border:1.5px solid var(--fg);display:grid;place-items:center;font-family:var(--display);font-variation-settings:"opsz" 28;font-weight:600;font-size:clamp(22px,2.4vw,32px)}
+.lb-title h2{font-size:clamp(40px,6vw,92px);line-height:.92;text-transform:uppercase;letter-spacing:-.005em}
+.lb-title .tr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-top:10px}
+.lb-main{aspect-ratio:3/4;max-height:78vh;overflow:hidden;background:#0d1220}
+.lb-main img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.lb-thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.lb-thumbs button{width:72px;aspect-ratio:3/4;padding:0;border:1px solid var(--line);background:none;opacity:.55;overflow:hidden}
+.lb-thumbs button[aria-current="true"]{opacity:1;border-color:var(--fg)}
+.lb-thumbs img{width:100%;height:100%;object-fit:cover}
+.sp-right{position:sticky;top:90px;display:grid;gap:28px;padding-top:clamp(0px,8vw,120px)}
+.cat-specs{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.cat-specs li{display:grid;gap:3px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.cat-specs b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cat-specs span{font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+.cat-specs small{display:block;text-transform:none;letter-spacing:.02em;color:var(--muted);font-size:13px;margin-top:2px}
+.buy{display:grid;gap:20px}
+.buy .pr{font-family:var(--mono);font-size:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.buy .pr small{font-size:11px;color:var(--muted);letter-spacing:.08em}
+.sp2{grid-template-columns:1fr 1.15fr;align-items:center}
+.sp2-photo{aspect-ratio:3/4;max-height:80vh;overflow:hidden;background:#0d1220}
+.sp2-photo img{width:100%;height:100%;object-fit:cover}
+.sp2-text{text-align:center;display:grid;gap:14px;justify-items:center;padding-inline:clamp(0px,2vw,32px)}
+.sp2-text h4{margin:18px 0 0;font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.sp2-text h4:first-child{margin-top:0}
+.props{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg);opacity:.9;max-width:52ch}
+.zrow{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
+.zrow span{display:grid;justify-items:center;gap:4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.zrow i{font-style:normal;font-size:30px;color:var(--fg);line-height:1}
+.story{margin:22px 0 0;max-width:54ch;font-size:15px;line-height:1.75;letter-spacing:.03em;text-transform:uppercase;color:var(--fg);opacity:.85}
+.motto{margin:26px 0 0;font-family:var(--display);font-style:italic;font-variation-settings:"opsz" 28;font-size:clamp(26px,3.2vw,44px);line-height:1.15;max-width:22ch;text-wrap:balance}
+.lb-foot{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:32px}
+.lb-foot img{width:34px;opacity:.8}
+@media (max-width:900px){.sp1,.sp2{grid-template-columns:1fr}.sp-right{position:static;padding-top:0}.lb-main,.sp2-photo{max-height:none}}
+
+/* language toggle */
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;margin-right:6px}
+.lang button{background:none;border:0;border-radius:999px;padding:5px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--silver);color:var(--ink)}
+
+/* wide catalog-spread layout */
+.sheet .panel{width:100%;border-left:0;border-right:0}
+.lb{padding:0 clamp(18px,3.2vw,72px) 40px}
+.sp{gap:clamp(24px,3.5vw,72px)}
+.sp1{grid-template-columns:minmax(0,1.7fr) minmax(340px,1fr);align-items:start}
+.lb-title{margin-bottom:clamp(16px,2vw,28px)}
+.lb-title h2{font-size:clamp(44px,6.4vw,120px)}
+.lb-main{aspect-ratio:3/2;max-height:none;width:min(100%,calc((100vh - 320px)*1.5));min-width:min(100%,560px)}
+.lb-thumbs button{width:clamp(80px,7vw,120px);aspect-ratio:4/3}
+.sp-right{top:84px;padding-top:clamp(0px,9vw,190px);gap:24px}
+.cat-specs{gap:10px}
+.cat-specs li{padding-bottom:10px}
+.cat-specs span{font-size:clamp(14px,1vw,17px)}
+.sizes{gap:6px}
+.sp2{grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr)}
+.sp2-photo{aspect-ratio:3/2;max-height:none}
+.story{font-size:clamp(14px,1vw,16px)}
+.props{font-size:clamp(13px,.95vw,15px)}
+@media (max-width:1000px){.sp1,.sp2{grid-template-columns:1fr}.sp-right{position:static;padding-top:0}}
+
+/* coming soon + request form */
+.soon .pics figure{margin:0;position:relative;overflow:hidden}
+.soon .pics img{filter:grayscale(1) brightness(.8);transition:filter .6s}
+.soon .pics figure:hover img{filter:none}
+.soon figcaption{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg);background:rgba(4,7,18,.55);padding:6px 10px;backdrop-filter:blur(6px)}
+.req{padding-block:clamp(56px,8vw,112px);border-bottom:1px solid var(--line)}
+.req-in{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,48px)}
+.req-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px clamp(32px,6vw,96px);align-items:end}
+.req-head .eyebrow{grid-column:1/-1}
+.req-head h2{margin:0!important}
+@media (max-width:760px){.req-head{grid-template-columns:1fr}}
+.req-head h2{font-size:clamp(30px,3.6vw,52px);line-height:1.14;padding-top:.08em;text-transform:uppercase;margin:14px 0 18px}
+.req-head p{color:var(--muted);max-width:40ch;margin:0}
+.req-pick{border:0;padding:0;margin:0 0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,20px)}
+.req-pick legend{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding:0}
+.req-pick label{cursor:pointer;position:relative}
+.req-pick input{position:absolute;opacity:0;pointer-events:none}
+.req-pick label>span{display:flex;flex-direction:column;gap:6px;padding:8px 8px 14px;border:1px solid var(--line);background:rgba(11,20,48,.45);transition:border-color .2s,background .2s}
+.req-pick img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;margin-bottom:10px;filter:grayscale(.6);transition:filter .4s,transform .8s}
+.req-pick .ph{position:relative;overflow:hidden;display:block}
+.req-pick label:hover .ph img{transform:scale(1.03)}
+.zoom{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(4,7,18,.55);backdrop-filter:blur(6px);color:#fff;display:grid;place-items:center;cursor:zoom-in;padding:0}
+.zoom svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+.zoom:hover{background:rgba(4,7,18,.85)}
+.zoom:focus-visible{outline:2px solid var(--silver);outline-offset:2px}
+.req-pick label .sel{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-inline:6px}
+.req-pick input:checked+span .sel{color:var(--ink)}
+.nlb{position:fixed;inset:0;z-index:200;background:rgba(3,5,12,.94);display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,56px)}
+.nlb.on{display:flex}
+.nlb figure{margin:0;display:grid;gap:14px;justify-items:center;max-width:100%}
+.nlb img{max-width:min(92vw,1100px);max-height:78vh;object-fit:contain;display:block}
+.nlb figcaption{font-family:var(--display);font-size:clamp(22px,2.4vw,32px);color:#fff;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center}
+.nlb figcaption small{font-family:var(--body);font-size:14px;color:var(--muted)}
+.nlb .x,.nlb .nv{position:absolute;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:20px;display:grid;place-items:center}
+.nlb .x{top:18px;right:18px}.nlb .pv{left:18px;top:50%;transform:translateY(-50%)}.nlb .nx{right:18px;top:50%;transform:translateY(-50%)}
+.nlb .btn{height:44px}
+@media (max-width:640px){.nlb .nv{top:auto;bottom:18px;transform:none}}
+.req-pick label:hover img,.req-pick input:checked+span img{filter:none}
+.req-pick b,.req-pick i{padding-inline:6px}
+.req-pick b{font-family:var(--display);font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1}
+.req-pick i{font-style:normal;font-size:12px;color:var(--muted)}
+.req-pick label:hover>span{border-color:rgba(205,211,220,.4)}
+.req-pick input:checked+span{border-color:var(--silver);background:var(--silver);color:var(--ink)}
+.req-pick input:checked+span i{color:var(--ink);opacity:.7}
+.req-pick input:focus-visible+span{outline:2px solid var(--silver);outline-offset:3px}
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.rf{display:grid;gap:8px}
+.rf.wide{grid-column:1/-1}
+.rf span{font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.rf input,.rf textarea{background:rgba(11,20,48,.55);border:1px solid var(--line);color:var(--fg);padding:12px 14px;font:inherit;font-size:15px;border-radius:0;min-height:46px;resize:vertical}
+.rf input:focus,.rf textarea:focus{outline:none;border-color:var(--silver)}
+.rf input[aria-invalid="true"]{border-color:#e6a3a3}
+.req-err{color:#f0b4b4;font-size:14px;margin:16px 0 0}
+.req-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+.req-note{font-size:13px;color:var(--muted)}
+@media (max-width:900px){.req-in{grid-template-columns:1fr}}
+@media (max-width:560px){.req-pick{grid-template-columns:repeat(2,1fr)}.req-grid{grid-template-columns:1fr}}
+.lb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.backbtn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px 0 12px;border-radius:999px;border:1px solid rgba(205,211,220,.35);background:rgba(4,7,18,.4);color:var(--fg);font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s;flex:none}
+.backbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+.backbtn:hover{background:var(--silver);color:var(--ink);border-color:var(--silver)}
+.backbtn:focus-visible{outline:2px solid var(--silver);outline-offset:2px}
+@media (max-width:640px){.lb-eb{display:none}}
+.usd{color:var(--muted);font-weight:400;font-size:.82em;letter-spacing:0;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<div class="announce" data-en="<b>925 sterling silver</b> · Handmade · Natural stones · <b>Name &amp; date engraving</b> inside the band"><b>925 ayar gümüş</b> · El yapımı · Doğal taş · İç yüzeye <b>isim &amp; tarih kazıma</b> seçeneği</div>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="EMC Jewels ana sayfa"><img src="img/logo_mark.png" alt="EMC Jewels"></a>
+    <nav class="main" aria-label="Ana menü">
+      <a href="#koleksiyon" data-col="m" class="on" data-en="Men">Erkek</a>
+      <a href="#koleksiyon" data-col="w" data-en="Women">Kadın</a>
+      <a href="#koleksiyon" data-jump="burc" data-en="By Zodiac">Burcuna Göre</a>
+      <a href="#atolye" data-en="Atelier">Atölye</a>
+      <a href="#iletisim" data-en="Contact">İletişim</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Dil / Language"><button data-l="tr" aria-pressed="true">TR</button><button data-l="en" aria-pressed="false">EN</button></div>
+      <button class="iconbtn" id="cartBtn" aria-label="Sepeti aç" data-en-aria="Open bag">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="gate" aria-label="Koleksiyon seç">
+    <a class="door w" href="#koleksiyon" data-col="w">
+      <img src="img/gate_woman.jpg" alt="Elleriyle yüzünü kapatan kadın, parmaklarında EMC Jewels yüzükleri">
+      <div class="lab">
+        <span class="big">WOMAN</span>
+        <span class="side"><span class="eyebrow" data-en="13 rings · Gold plated">13 yüzük · Altın kaplama</span><span class="go" data-en="Open catalogue →">Kataloğu aç →</span></span>
+      </div>
+    </a>
+    <a class="door m" href="#koleksiyon" data-col="m">
+      <img src="img/gate_man.jpg" alt="Eliyle yüzünü kapatan erkek, parmaklarında EMC Jewels yüzükleri">
+      <div class="lab">
+        <span class="big">MAN</span>
+        <span class="side"><span class="eyebrow" data-en="18 rings · 925 sterling silver">18 yüzük · 925 ayar gümüş</span><span class="go" data-en="Open catalogue →">Kataloğu aç →</span></span>
+      </div>
+    </a>
+  </section>
+  <div class="wrap gate-cap"><p data-en="Handmade rings with natural stones · Name &amp; date engraving inside">El yapımı, doğal taşlı yüzükler · İç yüzeye isim &amp; tarih kazıma</p><p data-en="Collection 2025">Koleksiyon 2025</p></div>
+
+  <div class="strip" aria-hidden="true"><div class="track" id="strip"></div></div>
+
+  <section class="catalog" id="koleksiyon">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" data-en="Collection">Koleksiyon</div>
+          <h2 style="margin-top:12px" id="colTitle" lang="en">Man Rings</h2>
+        </div>
+        <div class="switch" role="group" aria-label="Koleksiyon seçimi">
+          <button id="swMen" aria-pressed="true" data-en="Men">Erkek</button>
+          <button id="swWomen" aria-pressed="false" data-en="Women">Kadın</button>
+        </div>
+      </div>
+      <div class="quick" id="quick" role="group" aria-label="Taş rengine göre"></div>
+      <div class="toolbar">
+        <button class="tbtn" id="openF"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span data-en="Filter">Filtrele</span> <span class="fc" id="fCount" hidden>0</span></button>
+        <span id="resultTxt"></span>
+        <label class="sort" for="sortSel"><span data-en="Sort:">Sırala:</span>
+          <select id="sortSel">
+            <option value="f" data-en="Featured">Öne çıkanlar</option>
+            <option value="pa" data-en="Price: low to high">Fiyat: düşükten yükseğe</option>
+            <option value="pd" data-en="Price: high to low">Fiyat: yüksekten düşüğe</option>
+            <option value="az" data-en="Name: A–Z">İsim: A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="feature soon" id="yakinda">
+    <div class="txt">
+      <div class="eyebrow" data-en="Coming soon · New pieces">Yakında · Yeni ürünler</div>
+      <h2 data-en="New pieces<br><em style=&quot;color:var(--silver)&quot;>are on their way.</em>">Yeni parçalar<br><em style="color:var(--silver)">yolda.</em></h2>
+      <p data-en="Four new pieces are being finished in the atelier. Tell us the number of the piece you want and be the first to hear when it is ready.">Atölyede dört yeni parça hazırlanıyor. İstediğin parçanın numarasını bize yaz, hazır olduğunda ilk sen haber al.</p>
+      <div class="ctas"><a class="btn" href="#talep" data-en="Request a piece">Talep oluştur</a></div>
+    </div>
+    <div class="pics">
+      <figure><img src="img/new01.jpg" alt="N°01, damla taşlı kolye" data-en-alt="N°01, pear-drop necklace" loading="lazy"><figcaption data-en="N°01 · Coming soon">N°01 · Yakında</figcaption></figure>
+      <figure><img src="img/new03.jpg" alt="N°03, yaprak motifli damla kolye" data-en-alt="N°03, leaf-motif drop necklace" loading="lazy"><figcaption data-en="N°03 · Coming soon">N°03 · Yakında</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="req" id="talep">
+    <div class="wrap req-in">
+      <div class="req-head">
+        <div class="eyebrow" data-en="Request form">Talep formu</div>
+        <h2 data-en="Reserve a new piece">Yeni parçayı ayırt</h2>
+        <p data-en="Choose the number of the piece, leave your details and we will write to you when it is ready. Sending this form does not create an order or payment.">Parçanın numarasını seç, bilgilerini bırak; hazır olduğunda sana yazalım. Bu form sipariş ya da ödeme oluşturmaz.</p>
+      </div>
+      <form id="reqForm" novalidate>
+        <fieldset class="req-pick">
+          <legend data-en="Piece number">Ürün numarası</legend>
+          <label><input type="radio" name="no" value="01" required><span><span class="ph"><img src="img/new01.jpg" alt="N°01, damla taşlı kolye" data-en-alt="N°01, pear-drop necklace" loading="lazy"><button type="button" class="zoom" data-z="01" aria-label="N°01 büyük göster" data-en-aria="View N°01 large"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg></button></span><b>N°01</b><i data-en="Necklace">Kolye</i><em class="sel" data-en="Select">Seç</em></span></label>
+          <label><input type="radio" name="no" value="02"><span><span class="ph"><img src="img/new02.jpg" alt="N°02, mavi damla taşlı kolye" data-en-alt="N°02, blue pear-drop necklace" loading="lazy"><button type="button" class="zoom" data-z="02" aria-label="N°02 büyük göster" data-en-aria="View N°02 large"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg></button></span><b>N°02</b><i data-en="Necklace">Kolye</i><em class="sel" data-en="Select">Seç</em></span></label>
+          <label><input type="radio" name="no" value="03"><span><span class="ph"><img src="img/new03.jpg" alt="N°03, yaprak motifli kolye" data-en-alt="N°03, leaf-motif necklace" loading="lazy"><button type="button" class="zoom" data-z="03" aria-label="N°03 büyük göster" data-en-aria="View N°03 large"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg></button></span><b>N°03</b><i data-en="Necklace">Kolye</i><em class="sel" data-en="Select">Seç</em></span></label>
+          <label><input type="radio" name="no" value="04"><span><span class="ph"><img src="img/new04.jpg" alt="N°04, yaprak işlemeli yüzük" data-en-alt="N°04, leaf-carved ring" loading="lazy"><button type="button" class="zoom" data-z="04" aria-label="N°04 büyük göster" data-en-aria="View N°04 large"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg></button></span><b>N°04</b><i data-en="Ring">Yüzük</i><em class="sel" data-en="Select">Seç</em></span></label>
+        </fieldset>
+        <div class="req-grid">
+          <label class="rf"><span data-en="Full name">Ad soyad</span><input name="ad" required autocomplete="name"></label>
+          <label class="rf"><span data-en="Email">E-posta</span><input name="mail" type="email" required autocomplete="email"></label>
+          <label class="rf"><span data-en="Phone (optional)">Telefon (isteğe bağlı)</span><input name="tel" type="tel" autocomplete="tel"></label>
+          <label class="rf"><span data-en="Ring size (optional)">Yüzük ölçüsü (isteğe bağlı)</span><input name="olcu" inputmode="numeric"></label>
+          <label class="rf wide"><span data-en="Note (optional)">Not (isteğe bağlı)</span><textarea name="not" rows="3"></textarea></label>
+        </div>
+        <p class="req-err" id="reqErr" role="alert" hidden></p>
+        <div class="req-foot">
+          <button class="btn" type="submit" data-en="Send request">Talebi gönder</button>
+          <span class="req-note" data-en="Your email app opens with the request ready to send.">Talep, e-posta uygulamanda hazır olarak açılır.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="atelier" id="atolye">
+    <figure><img src="img/hero_cut.png" alt="EMC Jewels logosu, lacivert kadife üzerinde pırlantalı yüzük"></figure>
+    <div class="txt">
+      <div class="eyebrow" data-en="Atelier">Atölye</div>
+      <h2 data-en="We work silver by hand<br>and choose each stone for its story.">Gümüşü elde işliyor,<br>taşı hikâyesiyle seçiyoruz.</h2>
+      <ul class="pillars">
+        <li data-en="<b>925 sterling silver</b><span>Every ring is 925 sterling silver; most women’s pieces are gold plated.</span>"><b>925 ayar gümüş</b><span>Tüm yüzükler 925 ayar gümüş; kadın modellerin çoğu altın kaplama.</span></li>
+        <li data-en="<b>Handmade</b><span>Each piece is crafted one by one in the atelier.</span>"><b>El yapımı</b><span>Her model atölyede tek tek işlenir.</span></li>
+        <li data-en="<b>Natural stones</b><span>From aquamarine to turquoise, raw and crystal-cut stones.</span>"><b>Doğal taşlar</b><span>Aquamarinden firuzeye, ham ve kristal kesim taşlar.</span></li>
+        <li data-en="<b>Personalised</b><span>Name and date engraving inside the band.</span>"><b>Kişiye özel</b><span>İç yüzeye isim ve tarih kazıma seçeneği.</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer id="iletisim">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <img src="img/wordmark.png" alt="EMC Jewels">
+        <p data-en="Handmade 925 sterling silver rings with natural stones. Istanbul.">El yapımı, 925 ayar gümüş, doğal taşlı yüzükler. İstanbul.</p>
+      </div>
+      <div><h4 data-en="Shop">Mağaza</h4><ul><li><a href="#koleksiyon" data-col="m" data-en="Men’s rings">Erkek yüzükler</a></li><li><a href="#koleksiyon" data-col="w" data-en="Women’s rings">Kadın yüzükler</a></li><li><a href="#koleksiyon" data-jump="burc" data-en="By zodiac">Burcuna göre</a></li></ul></div>
+      <div><h4 data-en="Help">Yardım</h4><ul><li><a href="#iletisim" data-en="Ring size guide">Yüzük ölçüsü rehberi</a></li><li><a href="#iletisim" data-en="Shipping &amp; delivery">Kargo &amp; teslimat</a></li><li><a href="#iletisim" data-en="Returns &amp; exchanges">İade &amp; değişim</a></li></ul></div>
+      <div><h4 data-en="Legal">Yasal</h4><ul><li><a href="#iletisim" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a></li><li><a href="#iletisim" data-en="Pre-information form">Ön bilgilendirme formu</a></li><li><a href="#iletisim" data-en="Privacy notice (KVKK)">KVKK aydınlatma metni</a></li><li><a href="#iletisim" data-en="Privacy policy">Gizlilik politikası</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 EMC Jewels</span>
+      <div class="pay"><span>iyzico</span><span>VISA</span><span>Mastercard</span><span>Troy</span></div>
+    </div>
+  </div>
+</footer>
+<div class="nlb" id="nlb" role="dialog" aria-modal="true" aria-label="Ürün görseli" data-en-aria="Piece image"><button class="x" type="button" aria-label="Kapat" data-en-aria="Close">✕</button><button class="nv pv" type="button" aria-label="Önceki" data-en-aria="Previous">‹</button><figure><img id="nlbImg" alt=""><figcaption><span id="nlbCap"></span><button class="btn" type="button" id="nlbPick" data-en="Choose this piece">Bu parçayı seç</button></figcaption></figure><button class="nv nx" type="button" aria-label="Sonraki" data-en-aria="Next">›</button></div>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="pName">
+  <div class="panel" id="panel"></div>
+</div>
+
+<aside class="drawer fdrawer" id="fdrawer" role="dialog" aria-modal="true" aria-labelledby="fTitle">
+  <div class="dh"><h3 id="fTitle" data-en="Filter">Filtrele</h3><button class="iconbtn" id="fClose" aria-label="Filtreleri kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="fbody">
+    <div id="burc"><h4 data-en="Your sign">Burcun</h4><div class="chips" id="zodChips"></div></div>
+    <div><h4 data-en="Stone colour">Taş rengi</h4><div class="chips" id="colChips"></div></div>
+  </div>
+  <div class="df"><button class="btn ghost" id="clearF" data-en="Clear all">Tümünü kaldır</button><button class="btn" id="applyF" data-en="Apply">Uygula</button></div>
+</aside>
+
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <div class="dh"><h3 id="cartTitle" data-en="Your bag">Sepetin</h3><button class="iconbtn" id="cartClose" aria-label="Sepeti kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lines" id="lines"></div>
+  <div class="df" id="cartFoot"></div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const ZOD=Object.fromEntries(Object.entries({Koç:"♈",Boğa:"♉",İkizler:"♊",Yengeç:"♋",Aslan:"♌",Başak:"♍",Terazi:"♎",Akrep:"♏",Yay:"♐",Oğlak:"♑",Kova:"♒",Balık:"♓"}).map(([k,v])=>[k,v+"\uFE0E"]));
+const COLORS={Mavi:"#3d6fe0",Turkuaz:"#38c3c0",Yeşil:"#2a9a55",Kırmızı:"#c41d3a",Pembe:"#e46a92",Mor:"#8a4fd0","Sarı & Turuncu":"#e0a13a",Beyaz:"#ece6da",Siyah:"#6b7180"};
+const SULTANIT=["Zihinsel netlik ve farkındalık sağlar.","Değişken enerjisi ile ruhsal dönüşüme destek olur.","Stresi azaltır, içsel dengeyi güçlendirir."];
+const R=[
+ {n:1,name:"Ocean Spirit",tr:"Okyanus Ruhu",stone:"Doğal aquamarin (ham taş)",sname:"Aquamarin",style:"Osmanlı esintili vintage",c:"#62c2e6",col:"Turkuaz",p:4950,
+  props:["Duygusal berraklık, huzur ve cesaret getirir.","Denizin taşı olarak bilinir; koruma ve şifa sağlar.","Huzurlu iletişimi destekler, stresi azaltır."],z:["Balık","İkizler","Kova"],
+  story:"Eskiden denizciler tarafından güvenli yolculuklar için taşınan aquamarin, sonsuz okyanusun ruhunu taşır: sakin ama güçlü. Bu yüzük, hayatın her dalgasında doğruluğu, özgürlüğü ve içsel dengeyi arayan ruhları temsil eder.",q:"Okyanusun cesaretini taşı."},
+ {n:2,name:"Royal Legacy",tr:"Kraliyet Mirası",stone:"Kristal kesim lapis lazuli",sname:"Lapis lazuli",style:"Modern vintage esintili",c:"#2f55c8",col:"Mavi",p:4450,
+  props:["Bilgelik, sezgi ve içsel güç taşır.","Zihinsel açıklık ve ruhsal farkındalık getirir.","Stresi azaltır, özgüveni artırır."],z:["Yay","Terazi","Başak"],
+  story:"Antik çağlardan bu yana kralların ve bilge kişilerin taşı olarak bilinen lapis lazuli, ruhun derinliklerinden gelen bir gücü temsil eder. Bu yüzük, içindeki hakikati bulmaya cesareti olanlar için tasarlandı.",q:"Gerçek bilgelik, derinlikten doğar."},
+ {n:3,name:"Green Crown",tr:"Yeşil Taç",stone:"Kristal kesim zümrüt",sname:"Zümrüt",style:"Osmanlı vintage esintili",c:"#24a35a",col:"Yeşil",p:5450,
+  props:["Kalp çakrasını açar, sevgi ve şefkati artırır.","Bereket, sağlık ve huzur getirdiğine inanılır.","İç huzuru ve dengeli ilişkiler kurmayı destekler."],z:["Boğa","Yengeç","Başak","Terazi"],
+  story:"Binlerce yıldır hükümdarların ve bilgelerin gözdesi olan zümrüt, doğanın kalbinden gelen sonsuz yaşam enerjisini taşır. Green Crown, ruhuna huzur ve doğanın kudretini taşımak isteyenler için yaratıldı.",q:"Doğanın ruhu, parmaklarının ucunda."},
+ {n:4,name:"Dragon Flame",tr:"Ejderha Alevi",stone:"Doğal damla lal taşı",sname:"Lal",style:"Osmanlı esintili vintage",c:"#d0213f",col:"Kırmızı",p:4950,
+  props:["Tutku, güç ve cesaret taşıdır.","Negatif enerjiyi temizler, özgüveni artırır.","Kan dolaşımını desteklediği ve canlılık verdiği söylenir."],z:["Aslan","Koç","Akrep"],
+  story:"Antik savaşçıların ve liderlerin taşı olan lal, ateşi içinde taşıyanların sembolüydü. Dragon Flame, ruhunun derinliklerindeki alevi özgür bırakman için yaratıldı.",q:"Ejderhanın alevi gibi, kalbinden gelen güçle yan."},
+ {n:5,name:"Eyes of the Tiger",tr:"Kaplanın Gözleri",stone:"Doğal kaplan gözü",sname:"Kaplan gözü",style:"Modern vintage esintili",c:"#c48a2a",col:"Sarı & Turuncu",p:3950,
+  props:["Cesaret ve özgüven verir.","Negatif enerjiyi uzaklaştırır, kararlılığı güçlendirir.","Duygusal denge sağlar, odaklanmayı artırır."],z:["Aslan","İkizler","Başak"],
+  story:"Ormanın sessizliğinde avına odaklanan bir kaplanın bakışlarını düşün. Güç, zarafet ve içgüdü dolu. Eyes of the Tiger, kalbinin sesini takip edenlerin yüzüğü.",q:"Avcının bakışı, ruhunda saklıdır."},
+ {n:6,name:"Eternal Heart",tr:"Sonsuz Kalp",stone:"Kristal kesim lal (garnet)",sname:"Lal (garnet)",style:"Osmanlı esintili vintage",c:"#b0183a",col:"Kırmızı",p:4950,
+  props:["Sevgi, tutku ve yaşam enerjisinin taşıdır.","Cesareti artırır, kişisel gücü destekler.","Duygusal denge ve ruhsal şifa sağlar."],z:["Koç","Aslan","Akrep"],
+  story:"Binlerce yıldır savaşçıların ve liderlerin parmağında taşıdığı lal, kalbin derinliklerinden gelen tutkuyu temsil eder. Eternal Heart, ruhundaki ateşi hissetmek ve dünyaya yansıtmak isteyenler için tasarlandı.",q:"Kalbinin ateşi, ellerinde yankılansın."},
+ {n:7,name:"Magical Universe",tr:"Büyülü Evren",stone:"Mistik topaz (topaz üzeri özel kaplama)",sname:"Mistik topaz",style:"Osmanlı esintili modern vintage",c:"#7a68e0",col:"Mor",p:4450,
+  props:["Zihni berraklaştırır, yaratıcı düşünceyi güçlendirir.","Ruhsal enerjiyi artırır, koruma kalkanı oluşturur.","Kişiye iç huzur ve özgüven verir."],z:["Akrep","Yay","Kova"],
+  story:"Renklerin ve ışığın sonsuz dansını taşıyan bu yüzük, evrenin gizemli enerjisini parmaklarınıza getiriyor. Her parıltısında yeni bir keşif, yeni bir başlangıç saklı.",q:"Evrenin büyüsü avuçlarının içinde."},
+ {n:8,name:"Saints of the City",tr:"Şehrin Azizleri",stone:"Doğal oniks",sname:"Oniks",style:"Modern vintage, gotik esintili",c:"#8d93a3",col:"Siyah",p:3950,
+  props:["Negatif enerjiyi emer, koruma sağlar.","Güç, cesaret ve istikrar verir.","Zor zamanlarda güven ve destek hissi yaratır."],z:["Oğlak","Akrep","Aslan"],
+  story:"Büyük şehirlerin karmaşasında kaybolmayanların, gece ışıkları altında kendi yolunu bulanların yüzüğü. Saints of the City, kendi ruhunun koruyucusu olanlar için yaratıldı.",q:"Kendi şehrinin azizi ol."},
+ {n:9,name:"Ancient Shield",tr:"Kadim Kalkan",stone:"Akik (agate)",sname:"Akik",style:"Modern vintage esintili",c:"#c2482a",col:"Kırmızı",p:3950,
+  props:["Güç, dayanıklılık ve koruma enerjisi taşır.","Negatif enerjilere karşı kalkan oluşturur.","Stresi azaltır, iç huzuru destekler."],z:["Koç","Boğa","İkizler"],
+  story:"Tarihin en eski uygarlıkları tarafından bir koruma tılsımı olarak kullanılan akik, her zaman güç, istikrar ve kararlılık sembolü olmuştur. Ancient Shield, geçmişin bilgeliğini bugünün cesaretine taşıyor.",q:"Gücünü köklerinden al, kaderini kendin yaz."},
+ {n:10,name:"Sultan’s Light",tr:"Sultan Işığı",stone:"Doğal sultanit (zultanit)",sname:"Sultanit",style:"Orta yüzyıl esintili modern vintage",c:"#d39a35",col:"Sarı & Turuncu",p:5950,
+  props:SULTANIT,z:["Terazi","Koç","Boğa"],story:null,q:null},
+ {n:11,name:"Divine Vision",tr:"İlahi Görüş",stone:"Doğal ametist (ham taş)",sname:"Ametist",style:"Orta yüzyıl esintili vintage",c:"#9150d6",col:"Mor",p:4450,
+  props:["Negatif enerjiyi uzaklaştırır ve huzur getirir.","Sezgileri güçlendirir, ruhsal koruma sağlar.","Stresi ve gerginliği azaltır, berrak bir zihin sunar."],z:["Balık","Kova","Yay"],
+  story:"Antik medeniyetlerde ruhani uyanışın ve içsel dengenin taşı olarak kutsanan ametist, sahibine sonsuz bir sükûnet ve sezgi gücü armağan eder. Divine Vision, sezgilerine güvenen ve kendi yolunu aydınlatan ruhlar için tasarlandı.",q:"Ufkunu genişlet, üçüncü gözünü aç."},
+ {n:12,name:"Midnight Dream",tr:"Gece Yarısı Rüyası",stone:"Doğal damla lapis lazuli",sname:"Lapis lazuli",style:"Osmanlı esintili vintage",c:"#2a5fc0",col:"Mavi",p:4450,
+  props:["Bilgelik ve sezgi gücünü artırır.","Zihni berraklaştırır, iç huzur sağlar.","Negatif enerjilerden korur.","Kendini ifade etme yeteneğini güçlendirir."],z:["Yay","Başak","Terazi"],
+  story:"Denizin sonsuz derinliğini ve gökyüzünün en saf maviliğini içinde barındıran bu yüzük, iç yolculuğa çıkan ruhlar için tasarlandı. Midnight Dream, ruhunun enginliğini keşfetmek isteyenler için.",q:"Mavinin en saf haliyle özgürlüğe yelken aç."},
+ {n:13,name:"Solar Gleam",tr:"Güneş Parıltısı",stone:"Doğal amber (kehribar)",sname:"Amber",style:"Osmanlı esintili vintage",c:"#e8bd3e",col:"Sarı & Turuncu",p:7950,one:true,
+  props:["Pozitif enerjiyi çeker, bedeni ve ruhu dengeler.","Ağrıları hafifletir, bağışıklık sistemini güçlendirir.","Zihinsel açıklık ve duygusal denge sağlar."],z:["Aslan","İkizler","Başak"],
+  story:"Güneşin sıcaklığını ve yaşam enerjisini taşıyan amber, eski çağlardan beri koruyucu bir tılsım olarak kullanıldı. Solar Gleam, her an ruhunun ışığını yansıtanlar için tasarlandı.",q:"Güneşin sonsuz ışıltısını ruhunda taşı."},
+ {n:14,name:"Maldive Soul",tr:"Maldiv Ruhu",stone:"Doğal paraiba turmalin",sname:"Paraiba",style:"Osmanlı vintage & lüks",c:"#33cdb5",col:"Turkuaz",p:6950,
+  props:["Umut, huzur ve sevgi enerjisi yayar.","Stresi azaltır, ruhsal dengelenmeye destek olur.","Yaratıcılığı ve sezgileri güçlendirir."],z:["Balık","Yengeç","Kova"],
+  story:"Dünyanın en nadir taşlarından biri olan paraiba, Maldivler’in eşsiz sularını andıran rengiyle içsel huzurun ve özgürlüğün sembolüdür. Maldive Soul, ruhunun derinliklerinde sonsuz bir maviliğe yelken açmak isteyenler için tasarlandı.",q:"Ruhunu maviliğin sonsuzluğuna bırak."},
+ {n:15,name:"Radiant King",tr:"Parlayan Kral",stone:"Kristal sitrin",sname:"Sitrin",style:"Modern vintage",c:"#e07a22",col:"Sarı & Turuncu",p:4950,
+  props:["Enerji, canlılık ve mutluluk getirir.","Zihinsel netlik ve motivasyonu destekler.","Negatif enerjileri uzaklaştırır ve başarıyı teşvik eder."],z:["Aslan","Başak","Terazi"],
+  story:"Parlaklığıyla karanlığı yırtan sitrin, antik zamanlardan bu yana güç ve liderliğin taşı olarak anılır. Radiant King, taşıdığı her enerjiyi parlayan bir taç gibi giyenler için tasarlandı.",q:"Parlayan gücün tacını tak."},
+ {n:16,name:"Blue Monarch",tr:"Mavi Hükümdar",stone:"Doğal safir",sname:"Safir",style:"Gotik lüks, asil vintage",c:"#2448b8",col:"Mavi",p:9950,one:true,
+  props:["Bilgelik, sadakat ve ruhsal denge taşıdır.","Zihni berraklaştırır, odaklanmayı artırır.","Stresi azaltır ve iç huzuru destekler."],z:["Yay","Aslan","Başak"],
+  story:"Gökyüzünün enginliğinden ilham alan Blue Monarch, gücün ve bilgelikle hükmetmenin sembolüdür. Safirin derin mavi rengi, sonsuz bir özgürlük ve liderlik ruhunu taşır.",q:"Gökyüzünün lideri, bilgeliğin kanatlarında."},
+ {n:17,name:"Ring of Ra",tr:"Ra’nın Yüzüğü",stone:"Doğal sultanit (zultanit)",sname:"Sultanit",style:"Osmanlı vintage & lüks zarafet",c:"#cfa53c",col:"Sarı & Turuncu",p:8950,one:true,
+  props:SULTANIT,z:["Terazi","Koç","Boğa"],
+  story:"Antik Mısır’ın güneş tanrısı Ra’nın kutsal enerjisinden ilham alınarak tasarlanan bu yüzük, ışıkla birlikte değişen renkleriyle kullanıcısına ilahi bir koruma ve rehberlik sunar. Ring of Ra, her adımında bir lider gibi ışığını yaymak isteyenler için.",q:"Güneşin gücünü taşı, kaderini aydınlat."},
+ {n:18,name:"Cosmic Voyage",tr:"Kozmik Yolculuk",stone:"Doğal iyolit spinal",sname:"İyolit",style:"Modern vintage esintili",c:"#3a58cc",col:"Mavi",p:4950,
+  props:["İçsel keşif ve ruhsal rehberlik sağlar.","Sezgileri kuvvetlendirir ve karar verme yetisini güçlendirir.","Stresi azaltır, zihni sakinleştirir."],z:["Balık","Yay","Akrep"],
+  story:"İyolit, antik denizciler tarafından yıldızları bulmak için kullanılırdı. Cosmic Voyage, içsel evreninde yeni yollar keşfetmek isteyenler için tasarlandı.",q:"Kendi yıldızınla yol al."}
+];
+const GOLD="925 ayar gümüş (altın kaplama)",SILV="925 ayar gümüş";
+const W=[
+ {n:1,name:"Ethereal Grace",tr:"Ruhani Zarafet",stone:"Doğal ametist (ham taş)",sname:"Ametist",mat:GOLD,c:"#9a5ad8",col:"Mor",p:3450,
+  props:["Zihni sakinleştirir, iç huzuru destekler.","Negatif enerjiyi dönüştürerek güçlü bir koruma alanı oluşturur.","Sezgileri güçlendirir, spiritüel farkındalığı artırır."],z:["Balık","Kova","Yay"],
+  story:"Ametist, kadim çağlardan beri kralların, mistiklerin ve sanatçıların taşı olarak bilinir. Karmaşanın ortasında zihni dinginleştiren bu taş, ruhuna yön gösterir. Duyguların yoğunlaştığı anlarda kalbine sessiz bir denge sunar. Karanlıkla baş etmeyi bilenlerin taşıdır.",q:"Huzurun asaletini taşı."},
+ {n:2,name:"Deep Compass",tr:"Derin Pusula",stone:"Doğal iyolit (ham taş)",sname:"İyolit",mat:GOLD,c:"#3552d4",col:"Mavi",p:3450,
+  props:["İçsel yön bulma duygusunu geliştirir, sezgiyi güçlendirir.","Zihni berraklaştırır, karar verme süreçlerini destekler.","Geçmişten gelen duygusal yükleri arındırmaya yardımcı olur."],z:["Balık","Yengeç","Terazi"],
+  story:"Viking denizciler, açık denizlerde yön bulmak için iyolit taşını kullanırdı. Gökyüzü bulutlarla örtülse bile bu taşın içindeki yansıma yönlerini gösterirdi. Bu yüzük de yaşamın karmaşasında yolunu kaybedenlere içsel bir pusula sunar: sessiz ama net, derin ama rehber.",q:"Yolunu kalbinle bul."},
+ {n:3,name:"Flame Drop",tr:"Alev Damlası",stone:"Doğal turmalin (ham taş)",sname:"Turmalin",mat:GOLD,c:"#dc8a2e",col:"Sarı & Turuncu",p:3450,
+  props:["Negatif enerjiyi dönüştürür, güçlü bir koruma kalkanı oluşturur.","Duygusal tıkanıklıkları çözerek içsel özgürlüğü destekler.","Yaratıcılığı ve tutkuyu artırır, ilham verir."],z:["Akrep","Koç","Aslan"],
+  story:"Kadim uygarlıklar, turmalin taşını ruhsal arınma ve kötü enerjilerden korunmak için kullanırdı. Bu taş, kalpte bastırılmış duyguları serbest bırakır; tutkuyu, cesareti ve dönüşümü temsil eder. Gözyaşı formundaki bu yüzük ise içten gelen gücü zarafetle taşır.",q:"Alevini özgür bırak."},
+ {n:4,name:"Verdant Soul",tr:"Yeşeren Ruh",stone:"Doğal yeşil turmalin (ham taş)",sname:"Yeşil turmalin",mat:GOLD,c:"#86c43c",col:"Yeşil",p:3450,
+  props:["Kalbi açar, sevgi alışverişini güçlendirir.","Bedeni ve ruhu canlandırır, yaşama sevinci verir.","Doğayla uyumu artırır, stresi dönüştürür."],z:["Boğa","Başak","Terazi"],
+  story:"Yeşil turmalin, doğanın kalbinden gelen bir armağan gibidir. Her bir tonu, yeniden başlama enerjisini ve ruhsal yenilenmeyi simgeler. Bu yüzük; yaşamı, sevgiyi ve dengeyi içinde taşıyanlara ilham olur.",q:"Doğanın gücünü parmağında taşı."},
+ {n:5,name:"Crimson Pulse",tr:"Kızıl Nabız",stone:"Doğal lal spinel (ham taş)",sname:"Lal spinel",mat:GOLD,c:"#b8172f",col:"Kırmızı",p:3450,
+  props:["İçsel gücü ve özgüveni artırır.","Kararlılık ve netlik sağlar, yön belirlemeye yardımcı olur.","Tutkuyu ve hayata bağlılığı ateşler."],z:["Koç","Akrep","Oğlak"],
+  story:"Lal spinel, eski savaşçılar tarafından cesaret vermesi için zırhların içine gizlenirdi. Bugün ise kalbin ateşini canlı tutmak, karanlıkta bile ileriye yürümek için taşınır. Bu yüzük, seni içindeki kızıl nabzı duymaya davet ediyor.",q:"Tutkunu serbest bırak."},
+ {n:6,name:"Moon Shell",tr:"Ay Kabuğu",stone:"Doğal sedef (ham taş)",sname:"Sedef",mat:GOLD,c:"#ece6da",col:"Beyaz",p:2950,
+  props:["Dişil enerjiyi güçlendirir, sezgileri artırır.","Huzur ve duygusal denge sağlar.","Negatif enerjileri emerek kişinin çevresiyle uyumunu yükseltir."],z:["Yengeç","Balık","Terazi"],
+  story:"Okyanusun içinde yıllarca saklanmış bu zarif taş, yumuşaklığın ve derin gücün sembolüdür. Sedef, iç sesini dinlemeyi bilen ruhlara yol gösterir. Bu yüzük, ay ışığını parmağında taşımak isteyenlere bir davettir: sessizce parlar ama asla sönmez.",q:"Ay ışığını yansıt."},
+ {n:7,name:"Raw Flame",tr:"Ham Alev",stone:"Doğal kök yakut (ham taş)",sname:"Kök yakut",mat:GOLD,c:"#e2627e",col:"Pembe",p:3950,
+  props:["Kalp çakrasını aktive eder, sevgi ve tutkuyu güçlendirir.","Cesaret verir, içsel kararlılığı yükseltir.","Hayata karşı canlılık, dinamizm ve özgüven kazandırır."],z:["Aslan","Koç","Yengeç"],
+  story:"Kök yakut, yeryüzünün en güçlü ateş taşlarından biridir. Doğal haliyle işlenmeden gelen bu taş, içgüdüsel gücü ve kök enerjiyi temsil eder. Bu yüzük, ne olursa olsun sönmeyen bir iç ateşin parmak ucundaki halidir.",q:"Aşkı ateşle."},
+ {n:8,name:"Silent Authority",tr:"Sessiz Otorite",stone:"Doğal safir (ham taş)",sname:"Safir",mat:SILV,c:"#2a50c8",col:"Mavi",p:4450,
+  props:["Bilgelik, sadakat ve ruhsal netlik sağlar.","Zihni berraklaştırır, doğru kararlar vermeye destek olur.","İçsel gücü artırır, liderlik enerjisini dengeler."],z:["Başak","Kova","Yay"],
+  story:"Safir, tarihte kralların ve bilginlerin taşıydı. Göz alıcı rengiyle değil, verdiği içsel sezgiyle ışıldar. Bu yüzük, görünmeden hükmedenlere, konuşmadan yönetenlere ilham verir. Güçlü olmak için yüksek ses gerekmez.",q:"Sessizliğinle hükmet."},
+ {n:9,name:"Golden Spirit",tr:"Altın Ruh",stone:"Doğal sitrin (ham taş)",sname:"Sitrin",mat:SILV,c:"#e6ad2e",col:"Sarı & Turuncu",p:3450,
+  props:["Bolluk ve bereket enerjisini çeker.","Kendine güveni artırır, başarı odaklı çalışmaları destekler.","Ruh halini yükseltir, neşe ve pozitiflik yayar."],z:["Aslan","İkizler","Yay"],
+  story:"Sitrin, yüzyıllardır tüccarların ve sanatçıların taşı olarak bilinir. Işıkla dolu yapısı, ruhu karanlık düşüncelerden arındırır. Bu yüzük, kendi gücünü fark eden, ışığını cömertçe paylaşan ruhlar içindir. Girdiği yeri aydınlatanların mührü.",q:"Gücünü ışıktan al."},
+ {n:10,name:"Heart Whisper",tr:"Kalbin Fısıltısı",stone:"Doğal pembe turmalin (ham taş)",sname:"Pembe turmalin",mat:GOLD,c:"#e66a95",col:"Pembe",p:3450,
+  props:[],z:[],story:null,q:null},
+ {n:11,name:"Sky Guardian",tr:"Gökyüzü Muhafızı",stone:"Doğal turkuaz / firuze (ham taş)",sname:"Firuze",mat:GOLD,c:"#3dc8c8",col:"Turkuaz",p:3450,
+  props:["Negatif enerjiyi emer, koruyucu bir kalkan oluşturur.","Duygusal dengeyi sağlar, iç huzuru artırır.","İletişimi kuvvetlendirir, içsel bilgelikle bağ kurmayı destekler."],z:["Yay","Başak","Balık"],
+  story:"Firuze, gökyüzüyle yerin arasında bir köprü gibidir. Kadim Türkler ve Orta Doğu medeniyetleri tarafından nazardan korunmak ve iç huzuru sağlamak için taşınmıştır. Bu yüzük, yüreğiyle düşünen, kelimeleri ruhuyla hissedenlere ithaf edilmiştir.",q:"Kendini gökyüzüne bırak."},
+ {n:12,name:"Clarity Crown",tr:"Berraklık Tacı",stone:"Doğal mavi topaz (ham taş)",sname:"Mavi topaz",mat:SILV,c:"#4aa8e6",col:"Mavi",p:3950,
+  props:["Zihni berraklaştırır, konsantrasyonu artırır.","Duyguların dengelenmesine ve net iletişime destek olur.","İlham, sezgi ve içsel huzur enerjisi yayar."],z:["İkizler","Terazi","Balık"],
+  story:"Mavi topaz, kadim uygarlıklarda bilgelik taşı olarak kullanılmıştır. Görünenin ötesini sezmek, kelimelerle kalplere dokunmak isteyen ruhlara rehber olur. Bu yüzük, düşüncelerini özgürce ifade eden, zihni kadar kalbiyle de görenler içindir.",q:"Düşünceni ışıltıyla kuşan."},
+ {n:13,name:"Violet Rise",tr:"Mor Uyanış",stone:"Doğal ametist kristal (ham taş, şeffaf form)",sname:"Ametist kristal",mat:SILV,c:"#9070e0",col:"Mor",p:3450,
+  props:["Zihinsel farkındalığı ve spiritüel sezgileri güçlendirir.","Meditasyon, şifa ve enerji çalışmaları için idealdir.","Negatif düşünceleri arındırarak berraklık sağlar."],z:["Balık","Yay","Başak"],
+  story:"Ametistin kristal formu, saf bilginin ve ruhsal temizliğin taşıdır. Bedenin ötesinde bir ışıkla bağlantıya geçmek isteyenlerin elinde parlayan bu yüzük, duru görünün, ilhamın ve sezginin sembolüdür.",q:"Zihnini sustur, ruhunu dinle."}
+];
+R.forEach(r=>{const k=String(r.n).padStart(2,"0");r.g="m";r.id="m"+r.n;r.mat=SILV;r.z0=1.32;r.imgs=(r.n===10?[0,1]:[0,1,2]).map(i=>`img/r${k}_${i}.jpg`)});
+W.forEach(r=>{const k=String(r.n).padStart(2,"0");r.g="w";r.id="w"+r.n;r.style="Osmanlı esintili vintage";r.z0=1.04;r.imgs=(r.n===10?[0,1]:[0,1,2]).map(i=>`img/w${k}_${i}.jpg`)});
+const ALL=[...R,...W];
+const SILV_EN="925 sterling silver",GOLD_EN="925 sterling silver (gold plated)";
+const SULT_EN=["Brings mental clarity and awareness.","Its shifting energy supports spiritual transformation.","Reduces stress and strengthens inner balance."];
+const EN={
+m1:{stone:"Natural aquamarine (raw stone)",sname:"Aquamarine",style:"Ottoman-inspired vintage",props:["Brings emotional clarity, calm and courage.","Known as the stone of the sea; offers protection and healing.","Supports peaceful communication and eases stress."],story:"Carried by sailors of old for safe voyages, aquamarine holds the spirit of the endless ocean: calm but strong. This ring stands for souls who seek truth, freedom and inner balance through every wave of life.",q:"Carry the courage of the ocean."},
+m2:{stone:"Crystal-cut lapis lazuli",sname:"Lapis lazuli",style:"Modern vintage-inspired",props:["Carries wisdom, intuition and inner strength.","Brings mental openness and spiritual awareness.","Reduces stress and builds self-confidence."],story:"Known since antiquity as the stone of kings and sages, lapis lazuli represents a power rising from the depths of the soul. This ring was made for those brave enough to find the truth within.",q:"True wisdom is born in the depths."},
+m3:{stone:"Crystal-cut emerald",sname:"Emerald",style:"Ottoman vintage-inspired",props:["Opens the heart chakra, deepening love and compassion.","Believed to bring abundance, health and peace.","Supports inner peace and balanced relationships."],story:"The favourite of rulers and sages for thousands of years, emerald carries the endless life energy of nature's heart. Green Crown was created for those who want to carry peace and the might of nature.",q:"The soul of nature, at your fingertips."},
+m4:{stone:"Natural drop-cut ruby (lal)",sname:"Ruby",style:"Ottoman-inspired vintage",props:["A stone of passion, power and courage.","Clears negative energy and boosts confidence.","Said to support circulation and bring vitality."],story:"The stone of ancient warriors and leaders, ruby was the symbol of those who carried fire within. Dragon Flame was made to set free the flame deep in your soul.",q:"Burn with the strength of your heart, like a dragon's flame."},
+m5:{stone:"Natural tiger's eye",sname:"Tiger's eye",style:"Modern vintage-inspired",props:["Gives courage and self-confidence.","Repels negative energy and strengthens resolve.","Brings emotional balance and sharper focus."],story:"Picture the gaze of a tiger focused on its prey in the silence of the forest. Full of power, grace and instinct. Eyes of the Tiger is the ring of those who follow the voice of their heart.",q:"The hunter's gaze lives in your soul."},
+m6:{stone:"Crystal-cut garnet (lal)",sname:"Garnet",style:"Ottoman-inspired vintage",props:["The stone of love, passion and life energy.","Builds courage and supports personal power.","Brings emotional balance and spiritual healing."],story:"Worn by warriors and leaders for thousands of years, garnet represents the passion that rises from deep in the heart. Eternal Heart was designed for those who want to feel the fire in their soul and show it to the world.",q:"Let the fire of your heart echo in your hands."},
+m7:{stone:"Mystic topaz (special coating over topaz)",sname:"Mystic topaz",style:"Ottoman-inspired modern vintage",props:["Clears the mind and strengthens creative thinking.","Raises spiritual energy and forms a protective shield.","Brings inner peace and self-confidence."],story:"Carrying the endless dance of colour and light, this ring brings the mysterious energy of the universe to your fingers. In every sparkle lies a new discovery, a new beginning.",q:"The magic of the universe in the palm of your hand."},
+m8:{stone:"Natural onyx",sname:"Onyx",style:"Modern vintage, gothic-inspired",props:["Absorbs negative energy and offers protection.","Gives strength, courage and stability.","Creates a sense of trust and support in hard times."],story:"The ring of those who never get lost in the chaos of big cities, who find their own way under the night lights. Saints of the City was made for those who are the guardians of their own soul.",q:"Be the saint of your own city."},
+m9:{stone:"Agate",sname:"Agate",style:"Modern vintage-inspired",props:["Carries strength, endurance and protective energy.","Forms a shield against negative energies.","Reduces stress and supports inner peace."],story:"Used as a protective talisman by the oldest civilisations in history, agate has always been a symbol of strength, stability and determination. Ancient Shield carries the wisdom of the past into the courage of today.",q:"Draw strength from your roots, write your own fate."},
+m10:{stone:"Natural sultanite (zultanite)",sname:"Sultanite",style:"Mid-century-inspired modern vintage",props:SULT_EN},
+m11:{stone:"Natural amethyst (raw stone)",sname:"Amethyst",style:"Mid-century-inspired vintage",props:["Repels negative energy and brings peace.","Strengthens intuition and offers spiritual protection.","Eases stress and tension, leaving a clear mind."],story:"Revered in ancient civilisations as the stone of spiritual awakening and inner balance, amethyst gifts its wearer endless serenity and intuition. Divine Vision was designed for souls who trust their intuition and light their own way.",q:"Widen your horizon, open your third eye."},
+m12:{stone:"Natural drop-cut lapis lazuli",sname:"Lapis lazuli",style:"Ottoman-inspired vintage",props:["Strengthens wisdom and intuition.","Clears the mind and brings inner peace.","Protects from negative energies.","Strengthens self-expression."],story:"Holding the endless depth of the sea and the purest blue of the sky, this ring was designed for souls on an inner journey. Midnight Dream, for those who want to discover the vastness of their soul.",q:"Set sail for freedom in the purest blue."},
+m13:{stone:"Natural amber",sname:"Amber",style:"Ottoman-inspired vintage",props:["Attracts positive energy and balances body and soul.","Eases pain and strengthens the immune system.","Brings mental clarity and emotional balance."],story:"Carrying the warmth and life energy of the sun, amber has been used as a protective talisman since ancient times. Solar Gleam was designed for those who reflect the light of their soul at every moment.",q:"Carry the endless glow of the sun in your soul."},
+m14:{stone:"Natural Paraíba tourmaline",sname:"Paraíba",style:"Ottoman vintage & luxury",props:["Radiates hope, peace and love.","Reduces stress and supports spiritual balance.","Strengthens creativity and intuition."],story:"One of the rarest stones in the world, Paraíba is a symbol of inner peace and freedom with a colour that recalls the unique waters of the Maldives. Maldive Soul was designed for those who want to sail into an endless blue deep in their soul.",q:"Let your soul drift into the endless blue."},
+m15:{stone:"Crystal citrine",sname:"Citrine",style:"Modern vintage",props:["Brings energy, vitality and happiness.","Supports mental clarity and motivation.","Repels negative energies and encourages success."],story:"Tearing through the dark with its brilliance, citrine has been honoured since ancient times as the stone of power and leadership. Radiant King was designed for those who wear every energy they carry like a shining crown.",q:"Wear the crown of radiant power."},
+m16:{stone:"Natural sapphire",sname:"Sapphire",style:"Gothic luxury, noble vintage",props:["Carries wisdom, loyalty and spiritual balance.","Clears the mind and sharpens focus.","Reduces stress and supports inner peace."],story:"Inspired by the vastness of the sky, Blue Monarch is the symbol of power and of ruling with wisdom. The deep blue of sapphire carries a spirit of endless freedom and leadership.",q:"Leader of the sky, on the wings of wisdom."},
+m17:{stone:"Natural sultanite (zultanite)",sname:"Sultanite",style:"Ottoman vintage & luxury elegance",props:SULT_EN,story:"Inspired by the sacred energy of Ra, the sun god of ancient Egypt, this ring offers divine protection and guidance with colours that change with the light. Ring of Ra, for those who want to spread their light like a leader at every step.",q:"Carry the power of the sun, light up your fate."},
+m18:{stone:"Natural iolite spinel",sname:"Iolite",style:"Modern vintage-inspired",props:["Brings inner discovery and spiritual guidance.","Strengthens intuition and decision-making.","Reduces stress and calms the mind."],story:"Iolite was used by ancient sailors to find the stars. Cosmic Voyage was designed for those who want to discover new paths in their inner universe.",q:"Sail by your own star."},
+w1:{stone:"Natural amethyst (raw stone)",sname:"Amethyst",props:["Calms the mind and supports inner peace.","Transforms negative energy into a strong field of protection.","Strengthens intuition and spiritual awareness."],story:"Since ancient times amethyst has been known as the stone of kings, mystics and artists. In the midst of chaos it calms the mind and guides the soul. When emotions run high, it offers the heart a quiet balance. It is the stone of those who know how to face the dark.",q:"Carry the nobility of peace."},
+w2:{stone:"Natural iolite (raw stone)",sname:"Iolite",props:["Develops an inner sense of direction and strengthens intuition.","Clears the mind and supports decision-making.","Helps release emotional weight from the past."],story:"Viking sailors used iolite to find their way on the open sea. Even when clouds covered the sky, the reflection inside this stone showed them the way. This ring, too, offers an inner compass to those who lose their way in the chaos of life: quiet but clear, deep but guiding.",q:"Find your way with your heart."},
+w3:{stone:"Natural tourmaline (raw stone)",sname:"Tourmaline",props:["Transforms negative energy and forms a strong protective shield.","Releases emotional blocks and supports inner freedom.","Increases creativity and passion, inspires."],story:"Ancient civilisations used tourmaline for spiritual cleansing and protection from bad energy. This stone frees feelings held down in the heart; it stands for passion, courage and transformation. This teardrop-shaped ring carries inner strength with grace.",q:"Set your flame free."},
+w4:{stone:"Natural green tourmaline (raw stone)",sname:"Green tourmaline",props:["Opens the heart and strengthens the exchange of love.","Revives body and soul, brings joy of life.","Deepens harmony with nature and transforms stress."],story:"Green tourmaline is like a gift from the heart of nature. Each of its shades symbolises the energy of starting again and spiritual renewal. This ring inspires those who carry life, love and balance within.",q:"Carry the power of nature on your finger."},
+w5:{stone:"Natural spinel (raw stone)",sname:"Spinel",props:["Increases inner strength and confidence.","Brings determination and clarity, helps set a direction.","Ignites passion and devotion to life."],story:"Ancient warriors hid spinel inside their armour for courage. Today it is worn to keep the heart's fire alive and to walk forward even in the dark. This ring invites you to hear the crimson pulse within.",q:"Set your passion free."},
+w6:{stone:"Natural mother-of-pearl (raw)",sname:"Mother-of-pearl",props:["Strengthens feminine energy and intuition.","Brings peace and emotional balance.","Absorbs negative energy and raises harmony with one's surroundings."],story:"Hidden in the ocean for years, this delicate stone is a symbol of softness and deep strength. Mother-of-pearl guides souls who know how to listen to their inner voice. This ring is an invitation to those who want to wear moonlight on their finger: it glows quietly but never fades.",q:"Reflect the moonlight."},
+w7:{stone:"Natural root ruby (raw stone)",sname:"Root ruby",props:["Activates the heart chakra, strengthening love and passion.","Gives courage and raises inner determination.","Brings vitality, dynamism and confidence."],story:"Root ruby is one of the most powerful fire stones on earth. Coming untouched in its natural form, it represents instinctive power and root energy. This ring is the fingertip form of an inner fire that never goes out.",q:"Ignite love."},
+w8:{stone:"Natural sapphire (raw stone)",sname:"Sapphire",props:["Brings wisdom, loyalty and spiritual clarity.","Clears the mind and supports the right decisions.","Increases inner strength and balances leadership energy."],story:"In history, sapphire was the stone of kings and scholars. It shines not with dazzling colour but with the intuition it gives. This ring inspires those who rule unseen and lead without words. You don't need a loud voice to be strong.",q:"Rule with your silence."},
+w9:{stone:"Natural citrine (raw stone)",sname:"Citrine",props:["Attracts abundance and prosperity.","Boosts confidence and supports success-driven work.","Lifts the mood and spreads joy and positivity."],story:"For centuries citrine has been known as the stone of merchants and artists. Full of light, it clears the soul of dark thoughts. This ring is for souls who recognise their own power and share their light generously. The seal of those who light up every room.",q:"Draw your power from light."},
+w10:{stone:"Natural pink tourmaline (raw stone)",sname:"Pink tourmaline"},
+w11:{stone:"Natural turquoise (raw stone)",sname:"Turquoise",props:["Absorbs negative energy and forms a protective shield.","Brings emotional balance and deepens inner peace.","Strengthens communication and connection with inner wisdom."],story:"Turquoise is like a bridge between sky and earth. Ancient Turks and Middle Eastern civilisations carried it for protection from the evil eye and for inner peace. This ring is dedicated to those who think with their heart and feel words with their soul.",q:"Surrender to the sky."},
+w12:{stone:"Natural blue topaz (raw stone)",sname:"Blue topaz",props:["Clears the mind and improves concentration.","Supports emotional balance and clear communication.","Radiates inspiration, intuition and inner peace."],story:"Blue topaz was used as a stone of wisdom in ancient civilisations. It guides souls who want to sense beyond the visible and touch hearts with words. This ring is for those who express their thoughts freely and see with their heart as much as their mind.",q:"Dress your thoughts in light."},
+w13:{stone:"Natural amethyst crystal (raw, transparent form)",sname:"Amethyst crystal",props:["Strengthens mental awareness and spiritual intuition.","Ideal for meditation, healing and energy work.","Clears negative thoughts and brings clarity."],story:"The crystal form of amethyst is the stone of pure knowledge and spiritual clarity. Shining in the hands of those who want to connect with a light beyond the body, this ring is a symbol of clear sight, inspiration and intuition.",q:"Quiet your mind, listen to your soul."}
+};
+const ZOD_EN={Koç:"Aries",Boğa:"Taurus",İkizler:"Gemini",Yengeç:"Cancer",Aslan:"Leo",Başak:"Virgo",Terazi:"Libra",Akrep:"Scorpio",Yay:"Sagittarius",Oğlak:"Capricorn",Kova:"Aquarius",Balık:"Pisces"};
+const COL_EN={Mavi:"Blue",Turkuaz:"Turquoise",Yeşil:"Green",Kırmızı:"Red",Pembe:"Pink",Mor:"Purple","Sarı & Turuncu":"Yellow & Orange",Beyaz:"White",Siyah:"Black"};
+const STYLE_W_EN="Ottoman-inspired vintage";
+
+let lang="tr";try{const sv=localStorage.getItem("emc_lang");if(sv==="en"||sv==="tr")lang=sv}catch(e){}
+const T=(tr,en)=>lang==="en"?en:tr;
+const F=(r,k)=>{if(lang!=="en")return r[k];const e=EN[r.id]||{};if(k==="mat")return r.mat===GOLD?GOLD_EN:SILV_EN;if(k==="style"&&e.style==null&&r.g==="w")return STYLE_W_EN;if(k==="tr")return "";return e[k]!=null?e[k]:(k==="props"?[]:k==="story"||k==="q"?null:r[k])};
+const ZN=z=>lang==="en"?ZOD_EN[z]:z, CN=c=>lang==="en"?COL_EN[c]:c;
+
+const byId=id=>ALL.find(r=>r.id===id);
+let col="m";
+const listNow=()=>col==="m"?R:W;
+
+const $=s=>document.querySelector(s);
+const tl=n=>"₺"+n.toLocaleString("tr-TR");
+/* USD gösterimi — kur elle güncellenir (16.10.2026: 1 USD ≈ 49,5 TL) */
+const USD_RATE=49.5;
+const usd=n=>"$"+Math.round(n/USD_RATE).toLocaleString("en-US");
+const tlu=n=>`${tl(n)}<span class="usd"> · ${usd(n)}</span>`;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* strip */
+function drawStrip(){const words=T(["925 ayar gümüş","El yapımı","Doğal taşlar","Osmanlı esintili vintage","İsim & tarih kazıma","iyzico ile güvenli ödeme"],["925 sterling silver","Handmade","Natural stones","Ottoman-inspired vintage","Name & date engraving","Secure payment with iyzico"]);
+$("#strip").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).join("");}
+drawStrip();
+
+/* filters */
+let fZ=null,fC=null;
+function drawChips(){$("#zodChips").innerHTML=Object.entries(ZOD).map(([k,g])=>`<button class="chip" data-z="${k}" aria-pressed="false"><span class="g">${g}</span>${ZN(k)}</button>`).join("");
+$("#colChips").innerHTML=Object.entries(COLORS).map(([k,c])=>`<button class="chip" data-c="${k}" aria-pressed="false"><span class="dot" style="--c:${c}"></span>${CN(k)}</button>`).join("");}
+drawChips();
+$("#zodChips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;fZ=fZ===b.dataset.z?null:b.dataset.z;render()});
+$("#colChips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;fC=fC===b.dataset.c?null:b.dataset.c;render()});
+$("#clearF").addEventListener("click",()=>{fZ=fC=null;render()});
+let sortBy="f";$("#sortSel").addEventListener("change",e=>{sortBy=e.target.value;render()});
+$("#quick").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;fC=b.dataset.c||null;render()});
+function openF(){$("#fdrawer").classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden";setTimeout(()=>$("#fClose").focus(),50)}
+function closeF(){$("#fdrawer").classList.remove("on");if(!$("#sheet").classList.contains("on")&&!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
+$("#openF").onclick=openF;$("#fClose").onclick=closeF;$("#applyF").onclick=closeF;
+
+function render(){
+  document.querySelectorAll("#zodChips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.z===fZ));
+  document.querySelectorAll("#colChips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===fC));
+  const L=listNow();let list=L.filter(r=>(!fZ||r.z.includes(fZ))&&(!fC||r.col===fC));
+  if(sortBy==="pa")list=[...list].sort((a,b)=>a.p-b.p);else if(sortBy==="pd")list=[...list].sort((a,b)=>b.p-a.p);else if(sortBy==="az")list=[...list].sort((a,b)=>a.name.localeCompare(b.name,"tr"));
+  const cols=[...new Set(L.map(r=>r.col))];
+  $("#quick").innerHTML=`<button aria-pressed="${!fC}">${T("Tümünü gör","View all")}</button>`+Object.keys(COLORS).filter(c=>cols.includes(c)).map(c=>`<button data-c="${c}" aria-pressed="${fC===c}">${CN(c)}</button>`).join("");
+  const nf=(fZ?1:0)+(fC?1:0);$("#fCount").hidden=!nf;$("#fCount").textContent=nf;
+  $("#grid").innerHTML=list.length?list.map(r=>`
+    <button class="card" data-id="${r.id}" style="--stone:${r.c}" aria-label="${esc(T(r.name+" detaylarını aç","Open "+r.name))}">
+      <div class="ph">
+        <img src="img/d_${r.id}.jpg" alt="${esc(T(r.name+" yüzük, "+r.sname+" taşlı",r.name+" ring with "+F(r,"sname")))}" loading="lazy">
+        <span class="no">No. ${String(r.n).padStart(2,"0")}</span>
+        ${r.one?'<span class="tag-one one">Only one</span>':""}
+        <span class="glow"></span>
+      </div>
+      <div class="meta">
+        <div><h3 lang="en">${esc(r.name)}</h3><div class="sub">${esc(F(r,"sname"))}${r.z.length?" · "+r.z.map(z=>ZOD[z]).join(" "):""}</div></div>
+        <div class="price">${tlu(r.p)}</div>
+      </div>
+    </button>`).join(""):`<div class="empty">${T("Bu seçime uyan yüzük yok. Filtrelerden birini kaldırmayı dene.","No rings match this selection. Try removing a filter.")}</div>`;
+  const parts=[];if(fZ)parts.push(T(`${ZOD[fZ]} ${fZ} burcu`,`${ZOD[fZ]} ${ZN(fZ)}`));if(fC)parts.push(T(`${fC.toLowerCase()} taş`,`${CN(fC).toLowerCase()} stone`));
+  $("#resultTxt").textContent=parts.length?`${list.length} ${T("ürün","items")} · ${parts.join(" · ")}`:`${L.length} ${T("ürün","items")}`;
+
+}
+render();
+
+/* collection switch */
+function setCol(c){
+  col=c;$("#swMen").setAttribute("aria-pressed",c==="m");$("#swWomen").setAttribute("aria-pressed",c==="w");
+  $("#colTitle").textContent=c==="m"?"Man Rings":"Woman Rings";
+  document.querySelectorAll("nav.main a[data-col]").forEach(a=>a.classList.toggle("on",a.dataset.col===c));
+  render();
+}
+$("#swMen").onclick=()=>setCol("m");$("#swWomen").onclick=()=>setCol("w");
+document.querySelectorAll('a[data-col]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();setCol(a.dataset.col);$("#koleksiyon").scrollIntoView({behavior:"smooth"})}));
+document.querySelectorAll('[data-jump="burc"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();$("#koleksiyon").scrollIntoView({behavior:"smooth"});setTimeout(openF,450)}));
+
+/* product sheet */
+const SIZES={m:[16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],w:[10,11,12,13,14,15,16,17,18,19,20,21,22]};
+let cur=null,sel={size:null,img:0};
+const EXTRA=new Set(["m1","m2","m4","m5","m10","m13","m14","m15","m16","w1","w6","w7","w9","w12","w13"]);
+const gal=r=>["d","k","f"].concat(EXTRA.has(r.id)?["g"]:[]).map(p=>`img/L_${p}_${r.id}.jpg`);
+const UP=t=>String(t).toLocaleUpperCase("tr-TR");
+function openP(id){
+  cur=byId(id);sel={size:null,img:0};
+  const r=cur, G=gal(r), no=r.n;
+  $("#panel").style.setProperty("--stone",r.c);
+  $("#panel").innerHTML=`
+  <div class="lb" lang="${lang}">
+    <div class="lb-top"><div class="lb-left"><button class="backbtn" id="pBack" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>${T("Geri","Back")}</span></button><span class="eyebrow lb-eb" lang="en">EMC Jewels · ${r.g==="m"?"Man":"Woman"} Rings · New product year 2025</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div class="lang" role="group" aria-label="Dil / Language"><button data-l="tr" aria-pressed="${lang==="tr"}">TR</button><button data-l="en" aria-pressed="${lang==="en"}">EN</button></div>
+      <button class="iconbtn" id="pClose" aria-label="${T("Kapat","Close")}"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>
+
+    <section class="sp sp1">
+      <div class="sp-left">
+        <div class="lb-title"><span class="num">${no}</span><div><h2 id="pName" lang="en">${esc(r.name.toUpperCase())}</h2><div class="tr"><span lang="en">${esc(r.name.toUpperCase())}</span>${lang==="tr"?` (${esc(UP(r.tr))})`:""}</div></div></div>
+        <div class="lb-main"><img id="gMain" src="${G[0]}" alt="${esc(T(r.name+" yüzük fotoğrafı",r.name+" ring photo"))}"></div>
+        <div class="lb-thumbs">${G.map((src,i)=>`<button data-i="${i}" aria-current="${i===0}" aria-label="${T("Fotoğraf","Photo")} ${i+1}"><img src="${src}" alt=""></button>`).join("")}</div>
+      </div>
+      <div class="sp-right">
+        <ul class="cat-specs">
+          <li><b>${T("Marka","Brand")}</b><span>EMC Jewels</span></li>
+          <li><b>${T("Malzeme","Material")}</b><span>${esc(F(r,"mat"))}</span></li>
+          <li><b>${T("Değerli taş","Gemstone")}</b><span>${esc(F(r,"stone"))}</span></li>
+          <li><b>${T("İşçilik","Craftsmanship")}</b><span>${T("El yapımı","Handmade")}</span></li>
+          <li><b>${T("Stil","Style")}</b><span>${esc(F(r,"style"))}</span></li>
+          <li><b>${T("Kişiselleştirilebilir","Personalisable")}</b><span>${T("Evet","Yes")} <small>${T("(iç yüzeye isim &amp; tarih kazıma opsiyonu)","(name &amp; date engraving inside the band)")}</small></span></li>
+        </ul>
+        <div class="buy">
+          <div class="pr">${tlu(r.p)} <small>${T("Örnek fiyat · KDV dahil","Sample price · VAT incl.")}</small> ${r.one?'<span class="tag-one">Only one</span>':""}</div>
+          <div class="field">
+            <label><span>${T("Yüzük ölçüsü","Ring size")}</span><span id="szLbl">${T("Seçilmedi","Not selected")}</span></label>
+            <div class="sizes" id="sizes">${SIZES[r.g].map(x=>`<button data-s="${x}" aria-pressed="false">${x}</button>`).join("")}</div>
+            <span class="err" id="szErr" hidden>${T("Sepete eklemek için bir ölçü seç.","Choose a size to add to bag.")}</span>
+          </div>
+          <div class="field">
+            <label for="engr"><span>${T("İç yüzeye kazıma (isteğe bağlı)","Inside engraving (optional)")}</span><span id="engrCt">0/20</span></label>
+            <input id="engr" maxlength="20" placeholder="${T("Örn. Emre · 13.10.2026","e.g. Emre · 13.10.2026")}" autocomplete="off">
+          </div>
+          <button class="btn add" id="addBtn">${T("Sepete ekle","Add to bag")} · ${tl(r.p)}</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp sp2">
+      <div class="sp2-photo"><img src="img/L_f_${r.id}.jpg" alt="${esc(T(r.name+" yüzük, taş üzerinde",r.name+" ring on stone"))}"></div>
+      <div class="sp2-text">
+        ${F(r,"props").length?`<h4>${esc(T(UP(r.sname)+" taşı özellikleri",F(r,"sname").toUpperCase()+" properties"))}</h4><ul class="props">${F(r,"props").map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+        ${r.z.length?`<h4>${T("Özellikle etkilediği burçlar","Zodiac signs it resonates with")}</h4><div class="zrow">${r.z.map(z=>`<span><i>${ZOD[z]}</i>${esc(ZN(z))}</span>`).join("")}</div>`:""}
+        ${F(r,"story")?`<p class="story">${esc(F(r,"story"))}</p>`:""}
+        ${F(r,"q")?`<blockquote class="motto">“${esc(F(r,"q"))}”</blockquote>`:""}
+        ${!F(r,"props").length&&!F(r,"story")?`<p class="story">${T("Bu yüzüğün taş özellikleri ve hikâyesi yakında eklenecek.","The stone properties and story of this ring are coming soon.")}</p>`:""}
+      </div>
+    </section>
+    <div class="lb-foot"><img src="img/monogram.png" alt=""><span class="eyebrow">New product year 2025</span></div>
+  </div>`;
+  $("#panel").querySelector(".lb-thumbs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$("#gMain").src=G[+b.dataset.i];$("#panel").querySelectorAll(".lb-thumbs button").forEach(x=>x.setAttribute("aria-current",x===b))});
+  $("#sizes").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;sel.size=+b.dataset.s;$("#szLbl").textContent=sel.size;$("#szErr").hidden=true;$("#sizes").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+  $("#engr").addEventListener("input",e=>$("#engrCt").textContent=`${e.target.value.length}/20`);
+  $("#addBtn").onclick=()=>{if(!sel.size){$("#szErr").hidden=false;$("#sizes").scrollIntoView({block:"center",behavior:"smooth"});return}addToCart(r,sel.size,$("#engr").value.trim());closeP();openCart()};
+  $("#pClose").onclick=closeP;
+  $("#pBack").onclick=closeP;
+  $("#panel").querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+  $("#sheet").classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden";
+  $("#panel").scrollTop=0;setTimeout(()=>$("#pClose").focus(),50);
+}
+function closeP(){$("#sheet").classList.remove("on");if(!$("#drawer").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
+$("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openP(c.dataset.id)});
+$("#sheet").addEventListener("click",e=>{if(e.target.id==="sheet")closeP()});
+
+/* cart */
+let cart=[];try{cart=JSON.parse(localStorage.getItem("emc_cart")||"[]")}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem("emc_cart",JSON.stringify(cart))}catch(e){}};
+function addToCart(r,size,engr){
+  const one=r.one&&cart.some(l=>l.id===r.id);
+  if(one){toast(T("Bu model tek parça; zaten sepetinde.","This is a one-of-a-kind piece; it is already in your bag."));return}
+  cart.push({id:r.id,size,engr});save();drawCart();toast(T(`${r.name} sepete eklendi`,`${r.name} added to bag`));
+}
+let stage="cart";
+function drawCart(){
+  $("#cartCount").textContent=cart.length;
+  cart=cart.filter(l=>byId(l.id));const sum=cart.reduce((a,l)=>a+byId(l.id).p,0);
+  if(!cart.length){
+    $("#lines").innerHTML=`<div class="empty" style="padding:64px 0">${T("Sepetin boş.","Your bag is empty.")}<br><br><a class="btn ghost" href="#koleksiyon" id="toCol">${T("Koleksiyona dön","Back to collection")}</a></div>`;
+    $("#cartFoot").innerHTML="";const t=$("#toCol");if(t)t.onclick=closeCart;return;
+  }
+  $("#lines").innerHTML=cart.map((l,i)=>{const r=byId(l.id);return `
+    <div class="line"><img src="img/d_${r.id}.jpg" alt="">
+      <div><b>${esc(r.name)}</b><small>${esc(F(r,"sname"))} · ${T("Ölçü","Size")} ${l.size}</small>${l.engr?`<small>${T("Kazıma","Engraving")}: “${esc(l.engr)}”</small>`:""}<button class="rm" data-i="${i}">${T("Kaldır","Remove")}</button></div>
+      <div class="lp">${tlu(r.p)}</div></div>`}).join("");
+  $("#cartFoot").innerHTML= stage==="pay" ? `
+    <div class="notice">${T("<b>Ödeme adımı (taslak).</b> Canlı sitede bu butona basınca iyzico’nun güvenli ödeme formu açılacak: kart bilgisi, taksit seçenekleri ve 3D Secure doğrulaması iyzico tarafında yapılır.","<b>Payment step (draft).</b> On the live site this opens iyzico’s secure payment form: card details, instalments and 3D Secure are handled by iyzico.")}</div>
+    <button class="btn ghost add" id="backCart">${T("Sepete dön","Back to bag")}</button>` : `
+    <div class="sumrow"><span>${T("Ara toplam","Subtotal")}</span><span>${tl(sum)}</span></div>
+    <div class="sumrow"><span>${T("Kargo","Shipping")}</span><span>${T("Ödeme adımında hesaplanır","Calculated at checkout")}</span></div>
+    <div class="sumrow total"><span>${T("Toplam","Total")}</span><span>${tlu(sum)}</span></div>
+    <button class="btn add" id="payBtn">${T("iyzico ile güvenli öde","Pay securely with iyzico")}</button>
+    <div class="secure"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>256-bit SSL · ${T("Taksit seçenekleri iyzico’da","Instalment options at iyzico")}</div>`;
+  $("#lines").querySelectorAll(".rm").forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.i,1);save();stage="cart";drawCart()});
+  const p=$("#payBtn");if(p)p.onclick=()=>{stage="pay";drawCart()};
+  const bk=$("#backCart");if(bk)bk.onclick=()=>{stage="cart";drawCart()};
+}
+function openCart(){stage="cart";drawCart();$("#drawer").classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden";setTimeout(()=>$("#cartClose").focus(),50)}
+function closeCart(){$("#drawer").classList.remove("on");if(!$("#sheet").classList.contains("on")){$("#scrim").classList.remove("on");document.body.style.overflow=""}}
+$("#cartBtn").onclick=openCart;$("#cartClose").onclick=closeCart;
+$("#scrim").onclick=()=>{closeP();closeCart();closeF()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeP();closeCart();closeF()}});
+drawCart();
+
+/* language */
+function applyStatic(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-en]").forEach(el=>{if(el.dataset.tr==null)el.dataset.tr=el.innerHTML;el.innerHTML=lang==="en"?el.dataset.en:el.dataset.tr});
+  [["data-en-aria","aria-label"],["data-en-alt","alt"]].forEach(([d,a])=>document.querySelectorAll(`[${d}]`).forEach(el=>{const k="_tr_"+a;if(el[k]==null)el[k]=el.getAttribute(a)||"";el.setAttribute(a,lang==="en"?el.getAttribute(d):el[k])}));
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+}
+function setLang(l){lang=l;try{localStorage.setItem("emc_lang",l)}catch(e){}
+  applyStatic();drawStrip();drawChips();render();drawCart();
+  if($("#sheet").classList.contains("on")&&cur){const sc=$("#panel").scrollTop;openP(cur.id);$("#panel").scrollTop=sc}}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+if(lang!=="tr")setLang(lang);else applyStatic();
+
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2200)}
+
+
+/* new pieces lightbox */
+(function(){const lb=$("#nlb");if(!lb)return;const NN=["01","02","03","04"];
+  const KIND={"01":["Kolye","Necklace"],"02":["Kolye","Necklace"],"03":["Kolye","Necklace"],"04":["Yüzük","Ring"]};
+  let ci=0,last=null;
+  const show=i=>{ci=(i+4)%4;const n=NN[ci];$("#nlbImg").src=`img/new${n}.jpg`;$("#nlbImg").alt=`N°${n}`;
+    $("#nlbCap").innerHTML=`N°${n} <small>${T(KIND[n][0],KIND[n][1])} · ${T("Yakında","Coming soon")}</small>`};
+  const open=i=>{last=document.activeElement;show(i);lb.classList.add("on");document.body.style.overflow="hidden";lb.querySelector(".x").focus()};
+  const close=()=>{lb.classList.remove("on");document.body.style.overflow="";last&&last.focus()};
+  document.querySelectorAll(".zoom").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();open(NN.indexOf(b.dataset.z))}));
+  lb.querySelector(".x").onclick=close;lb.querySelector(".pv").onclick=()=>show(ci-1);lb.querySelector(".nx").onclick=()=>show(ci+1);
+  lb.addEventListener("click",e=>{if(e.target===lb)close()});
+  $("#nlbPick").onclick=()=>{const r=document.querySelector(`#reqForm input[value="${NN[ci]}"]`);r.checked=true;r.dispatchEvent(new Event("input",{bubbles:true}));close();$("#reqForm [name=ad]").focus()};
+  document.addEventListener("keydown",e=>{if(!lb.classList.contains("on"))return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(ci-1);if(e.key==="ArrowRight")show(ci+1)});
+})();
+/* request form -> email */
+const EMC_MAIL="emcjewels@gmail.com";
+(function(){const f=$("#reqForm");if(!f)return;const err=$("#reqErr");
+  f.addEventListener("input",()=>{err.hidden=true;f.querySelectorAll("[aria-invalid]").forEach(x=>x.removeAttribute("aria-invalid"))});
+  f.addEventListener("submit",e=>{e.preventDefault();
+    const d=new FormData(f),no=d.get("no"),ad=(d.get("ad")||"").trim(),ml=(d.get("mail")||"").trim();
+    f.querySelectorAll("[aria-invalid]").forEach(x=>x.removeAttribute("aria-invalid"));
+    let m="";
+    if(!no)m=T("Lütfen bir ürün numarası seç.","Please choose a piece number.");
+    else if(!ad){m=T("Lütfen adını yaz.","Please enter your name.");f.ad.setAttribute("aria-invalid","true");f.ad.focus()}
+    else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ml)){m=T("Lütfen geçerli bir e-posta yaz.","Please enter a valid email.");f.mail.setAttribute("aria-invalid","true");f.mail.focus()}
+    if(m){err.textContent=m;err.hidden=false;return}
+    err.hidden=true;
+    const sub=`Ön talep / Pre-order request — N°${no}`;
+    const body=[`Ürün / Piece: N°${no}`,`Ad soyad / Name: ${ad}`,`E-posta / Email: ${ml}`,`Telefon / Phone: ${(d.get("tel")||"-")}`,`Yüzük ölçüsü / Ring size: ${(d.get("olcu")||"-")}`,"",`Not / Note:`,`${(d.get("not")||"-")}`].join("\n");
+    const url=`mailto:${EMC_MAIL}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+    try{window.top.location.href=url}catch(x){window.location.href=url}
+    toast(T(`N°${no} talebin e-posta uygulamanda açıldı.`,`Your N°${no} request opened in your email app.`));
+  });
+})();
+</script>
+
+</html>
