@@ -408,6 +408,21 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
 .soon .pics img{filter:grayscale(1) brightness(.8);transition:filter .6s}
 .soon .pics figure:hover img{filter:none}
 .soon figcaption{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg);background:rgba(4,7,18,.55);padding:6px 10px;backdrop-filter:blur(6px)}
+.news{padding-block:clamp(56px,8vw,112px);border-top:1px solid var(--line)}
+.news-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:end}
+.news-head h2{font-size:clamp(30px,3.6vw,52px);line-height:1.14;padding-top:.08em;text-transform:uppercase;margin:14px 0 16px}
+.news-head p{color:var(--muted);max-width:44ch;margin:0}
+.news-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}
+.news-row .btn{min-height:46px}
+.news-ok{display:flex;gap:12px;align-items:flex-start;margin-top:18px;font-size:14px;line-height:1.5;color:rgba(238,241,246,.86);cursor:pointer}
+.news-ok input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin:1px 0 0;border:1px solid rgba(205,211,220,.55);background:rgba(11,20,48,.55);display:grid;place-items:center;cursor:pointer}
+.news-ok input:checked{background:var(--silver);border-color:var(--silver)}
+.news-ok input:checked::after{content:"";width:10px;height:6px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateY(-1px) rotate(-45deg)}
+.news-ok input:focus-visible{outline:2px solid var(--silver);outline-offset:2px}
+.news-ok input[aria-invalid="true"]{border-color:#e6a3a3}
+.news-ok a,.news-note a,.req-kvkk a{color:var(--silver)}
+.news-note,.req-kvkk{font-size:12.5px;color:var(--muted);margin:12px 0 0;line-height:1.55}
+@media (max-width:760px){.news-in{grid-template-columns:1fr}.news-row{grid-template-columns:1fr}}
 .req{padding-block:clamp(56px,8vw,112px);border-bottom:1px solid var(--line)}
 .req-in{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,48px)}
 .req-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px clamp(32px,6vw,96px);align-items:end}
@@ -586,6 +601,7 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
           <button class="btn" type="submit" data-en="Send request">Talebi gönder</button>
           <span class="req-note" data-en="Your email app opens with the request ready to send.">Talep, e-posta uygulamanda hazır olarak açılır.</span>
         </div>
+        <p class="req-kvkk" data-en="Your data is used only to answer your request and is processed under our <a href=&quot;yasal/kvkk.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>privacy notice (KVKK)</a>.">Bilgilerin yalnızca talebini yanıtlamak için kullanılır ve <a href="yasal/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a> kapsamında işlenir.</p>
       </form>
     </div>
   </section>
@@ -604,6 +620,25 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
     </div>
   </section>
 
+  <section class="news" id="bulten">
+    <div class="wrap news-in">
+      <div class="news-head">
+        <div class="eyebrow" data-en="Newsletter">Bülten</div>
+        <h2 data-en="Hear about new pieces first">Yeni ürünlerden haberdar ol</h2>
+        <p data-en="New collections, one-of-a-kind stones and pre-sales — straight to your inbox. No spam; leave whenever you like.">Yeni koleksiyonlar, tek parça taşlar ve ön satışlar, önce senin e-postana gelsin. Spam yok; istediğin an ayrılabilirsin.</p>
+      </div>
+      <form class="news-form" id="newsForm" novalidate>
+        <div class="news-row">
+          <label class="rf"><span data-en="Email">E-posta</span><input name="mail" type="email" required autocomplete="email" inputmode="email"></label>
+          <button class="btn" type="submit" data-en="Subscribe">Kaydol</button>
+        </div>
+        <label class="news-ok"><input type="checkbox" name="etk" required><span data-en="I have read the <a href=&quot;yasal/ileti-onay.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>commercial e-message consent text</a> and agree to receive emails from EMC Jewels about new pieces and campaigns.">EMC Jewels'ten yeni ürün ve kampanyalar hakkında e-posta almayı kabul ediyorum. <a href="yasal/ileti-onay.html" target="_blank" rel="noopener">Ticari elektronik ileti onay metni</a>ni okudum.</span></label>
+        <p class="news-note" data-en="Your data is processed under our <a href=&quot;yasal/kvkk.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>privacy notice (KVKK)</a>. Your email app opens with the sign-up ready to send.">Kişisel verilerin <a href="yasal/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a> kapsamında işlenir. Kayıt, e-posta uygulamanda hazır olarak açılır.</p>
+        <p class="req-err" id="newsErr" role="alert" hidden></p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer id="iletisim">
@@ -614,8 +649,8 @@ h1,h2,h3,.door .big{font-family:var(--display);font-optical-sizing:none;font-var
         <p data-en="Handmade 925 sterling silver rings with natural stones. Istanbul.">El yapımı, 925 ayar gümüş, doğal taşlı yüzükler. İstanbul.</p>
       </div>
       <div><h4 data-en="Shop">Mağaza</h4><ul><li><a href="#koleksiyon" data-col="m" data-en="Men’s rings">Erkek yüzükler</a></li><li><a href="#koleksiyon" data-col="w" data-en="Women’s rings">Kadın yüzükler</a></li><li><a href="#koleksiyon" data-jump="burc" data-en="By zodiac">Burcuna göre</a></li></ul></div>
-      <div><h4 data-en="Help">Yardım</h4><ul><li><a href="#iletisim" data-en="Ring size guide">Yüzük ölçüsü rehberi</a></li><li><a href="#iletisim" data-en="Shipping &amp; delivery">Kargo &amp; teslimat</a></li><li><a href="#iletisim" data-en="Returns &amp; exchanges">İade &amp; değişim</a></li></ul></div>
-      <div><h4 data-en="Legal">Yasal</h4><ul><li><a href="#iletisim" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a></li><li><a href="#iletisim" data-en="Pre-information form">Ön bilgilendirme formu</a></li><li><a href="#iletisim" data-en="Privacy notice (KVKK)">KVKK aydınlatma metni</a></li><li><a href="#iletisim" data-en="Privacy policy">Gizlilik politikası</a></li></ul></div>
+      <div><h4 data-en="Help">Yardım</h4><ul><li><a href="#iletisim" data-en="Ring size guide">Yüzük ölçüsü rehberi</a></li><li><a href="#iletisim" data-en="Shipping &amp; delivery">Kargo &amp; teslimat</a></li><li><a href="yasal/iade.html" data-en="Returns &amp; exchanges">İade &amp; değişim</a></li></ul></div>
+      <div><h4 data-en="Legal">Yasal</h4><ul><li><a href="yasal/mesafeli-satis.html" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a></li><li><a href="yasal/on-bilgilendirme.html" data-en="Pre-information form">Ön bilgilendirme formu</a></li><li><a href="yasal/kvkk.html" data-en="Privacy notice (KVKK)">KVKK aydınlatma metni</a></li><li><a href="yasal/gizlilik.html" data-en="Privacy &amp; cookie policy">Gizlilik ve çerez politikası</a></li><li><a href="yasal/kullanim.html" data-en="Terms of use">Kullanım koşulları</a></li><li><a href="yasal/ileti-onay.html" data-en="E-message consent">Ticari ileti onayı</a></li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 EMC Jewels</span>
@@ -1044,6 +1079,27 @@ const EMC_MAIL="emcjewels@gmail.com";
 (()=>{const go=()=>{const m=location.hash.match(/^#r=([\w-]+)$/);if(!m)return;const r=typeof byId==="function"&&byId(m[1]);if(!r)return;try{if(r.g&&r.g!==col&&typeof setCol==="function")setCol(r.g)}catch(x){}openP(r.id)};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(go,60));else setTimeout(go,60);
 window.addEventListener("hashchange",go)})();
+</script>
+<script>
+(()=>{
+  const f=document.getElementById("newsForm");if(!f)return;
+  const err=document.getElementById("newsErr"),M="emcjewels@gmail.com";
+  const L=()=>document.documentElement.lang==="en";
+  f.addEventListener("submit",e=>{
+    e.preventDefault();
+    const em=f.mail.value.trim(),ok=f.etk.checked;
+    f.mail.setAttribute("aria-invalid",String(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)));
+    f.etk.setAttribute("aria-invalid",String(!ok));
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent=L()?"Please enter a valid email address.":"Geçerli bir e-posta adresi yaz.";err.hidden=false;f.mail.focus();return}
+    if(!ok){err.textContent=L()?"Please tick the consent box to subscribe.":"Kaydolmak için onay kutusunu işaretle.";err.hidden=false;f.etk.focus();return}
+    err.hidden=true;
+    const ts=new Date().toLocaleString("tr-TR",{timeZone:"Europe/Istanbul"});
+    const body=["Bülten kaydı / Newsletter sign-up","","E-posta: "+em,"Tarih: "+ts,"Kaynak: emcjewels.com · Yeni ürünlerden haberdar ol","","Onay: EMC Jewels'ten yeni ürün, koleksiyon ve kampanyalar hakkında bu e-posta adresime ticari elektronik ileti gönderilmesine onay veriyorum. (emcjewels.com/yasal/ileti-onay.html)","KVKK Aydınlatma Metni: emcjewels.com/yasal/kvkk.html"].join("\n");
+    const url=`mailto:${M}?subject=${encodeURIComponent("Bülten kaydı · "+em)}&body=${encodeURIComponent(body)}`;
+    try{window.top.location.href=url}catch(x){window.location.href=url}
+    if(typeof toast==="function")toast(L()?"Your sign-up opened in your email app — just hit send.":"Kaydın e-posta uygulamanda açıldı, göndermen yeterli.");
+  });
+})();
 </script>
 <!-- EMC görsel koruma -->
 <style>
